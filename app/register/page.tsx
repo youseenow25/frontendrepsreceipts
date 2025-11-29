@@ -88,18 +88,18 @@ export default function RegisterPage() {
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="flex justify-center">
-          <Image width={150} height={150} src={"/logoheader.png"} alt="Hub Logo" />
+          <Image width={150} height={150} src={"/logo.png"} alt="Hub Logo" />
         </div>
         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
           Create your account
         </h2>
         <p className="mt-2 text-center text-sm text-gray-600">
-          Already have an account?{" "}
+          Do you have an account?{" "}
           <button
             onClick={() => router.push("/login")}
-            className="font-medium text-blue-600 hover:text-blue-500 transition-colors"
+            className="font-medium text-purple-600 hover:text-blue-500 transition-colors"
           >
-            Sign in
+            Log in
           </button>
         </p>
       </div>
@@ -109,7 +109,7 @@ export default function RegisterPage() {
           <form className="space-y-6" onSubmit={handleRegister}>
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                Full name
+               Your name
               </label>
               <div className="mt-1">
                 <input
@@ -128,7 +128,7 @@ export default function RegisterPage() {
 
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                Email address
+                Email
               </label>
               <div className="mt-1">
                 <input
@@ -173,7 +173,7 @@ export default function RegisterPage() {
                     passwordRequirements.length ? 'text-green-600' : 'text-gray-500'
                   }`}>
                     <span className="mr-1">{passwordRequirements.length ? '✓' : '○'}</span>
-                    At least 7 characters
+                    At least 8 characters
                   </div>
                 </div>
               )}
@@ -204,7 +204,7 @@ export default function RegisterPage() {
               </div>
               {confirmPassword && password !== confirmPassword && (
                 <div className="mt-1 text-xs text-red-600">
-                  Passwords do not match
+                  Passwords don't match
                 </div>
               )}
               {confirmPassword && password === confirmPassword && passwordRequirements.isValid && (
@@ -231,9 +231,10 @@ export default function RegisterPage() {
 
             <div>
               <button
+              style={{background:'black'}}
                 type="submit"
                 disabled={isLoading || !passwordRequirements.isValid || password !== confirmPassword}
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isLoading ? (
                   <div className="flex items-center">
@@ -241,10 +242,10 @@ export default function RegisterPage() {
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
-                    Creating account...
+                    Creating account ..
                   </div>
                 ) : (
-                  <span style={{fontSize:20, fontWeight:'600'}}>
+                  <span style={{fontSize:20, fontWeight:'900'}}>
                     Create account
                   </span>
                 )}
@@ -256,11 +257,7 @@ export default function RegisterPage() {
                 <div className="absolute inset-0 flex items-center">
                   <div className="w-full border-t border-gray-300" />
                 </div>
-                <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-white text-gray-500">
-                    By creating an account, you agree to our Terms
-                  </span>
-                </div>
+              
               </div>
             </div>
           </form>

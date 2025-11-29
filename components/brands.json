@@ -187,7 +187,7 @@
         "product_price",
         "quantity",
         "shipping_cost",
-        "spain",
+      
         "street",
         "total",
         "zip_code"
@@ -198,7 +198,7 @@
         "street": 20,
         "city": 20,
         "zip_code": 20,
-        "spain": 10,
+   
         "product_id": 10,
         "product_name": 10,
         "quantity": 10,

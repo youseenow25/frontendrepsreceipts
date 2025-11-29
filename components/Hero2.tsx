@@ -61,9 +61,8 @@ interface HeroProps {
 
 export default function Hero({ brandName = "" }: HeroProps) {
   const phrases = [
-    "✉️ +60 email templates",
-    "🏆 Top #1 receipt generator ",
-    "🌍 +6500 users worlwide using it",
+    "✉️ +70 email templates",
+   
   ];
 
   const brands = [
@@ -185,8 +184,7 @@ export default function Hero({ brandName = "" }: HeroProps) {
     <section className="hero">
       <div style={{ width: '100%' }}>
         <h5 style={{ 
-          fontSize: isMobile ? "clamp(2rem, 8vw, 3rem)" : "clamp(3.5rem, 5vw, 5rem)", 
-          fontWeight: 500,
+          fontSize: isMobile ? "clamp(2rem, 8vw, 3rem)" : "clamp(3.5rem, 5vw, 5rem)",          fontWeight: 500,
           lineHeight: 1.2,
           marginBottom: "1rem",
           textAlign: "center"
@@ -195,92 +193,25 @@ export default function Hero({ brandName = "" }: HeroProps) {
           <span style={{ opacity: blink ? 1 : 0 }}>|</span>
         </h5>
 
-        {/* CTA Banner */}
-        <div
-          className="cta"
-          style={{
-            marginTop: 24,
-            display: "flex",
-            justifyContent: "center",
-            gap: 12,
-            flexWrap: isMobile ? "wrap" : "nowrap",
-            width: '100%'
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 8,
-              textAlign: "center",
-              justifyContent: "center",
-              width: '100%'
-            }}
-          >
-            <div
-              style={{
-                padding: "4px 10px",
-                backgroundColor: "#e9f4ff",
-                display: "flex",
-                alignItems: "center",
-              }}
-            >
-              <p style={{ color: "#0060f2", fontWeight: "500", margin: 0, fontSize: isMobile ? "14px" : "16px" }}>
-                New
-              </p>
-            </div>
-
-            {isMobile
-              ? "For any assistance, go to"
-              : "For any assistance or help, contact us at this Discord"}
-            <br />
-
-            <a
-              href="https://discord.gg/2ZRQu2uT62"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                padding: "3px 16px",
-                backgroundColor: "#5462ea",
-                display: "flex",
-                alignItems: "center",
-                cursor: "pointer",
-                textDecoration: "none",
-              }}
-            >
-              <p style={{ 
-                color: "white", 
-                fontWeight: "500", 
-                margin: 0, 
-                fontSize: isMobile ? "14px" : "16px",
-                display: "flex",
-                alignItems: "center",
-                gap: 4,
-                whiteSpace: "nowrap"
-              }}>
-                Discord <span style={{ fontSize: "14px" }}>↗</span>
-              </p>
-            </a>
-          </div>
-        </div>
+        
 
         <div
           style={{
-            width: '90%',
+            width: '100%',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            margin: '0 auto'
+           
           }}
         >
           <Counter />
         </div>
 
-        {/* Scrolling Brand Rows - Reduced spacing */}
+
         <div style={{ 
-          marginTop: isMobile ? '5%' : '1%',
+          marginTop: isMobile ? '1%' : '1%',
           width: '100%',
-          padding: isMobile ? '0 16px' : '0 20px'
+          padding: isMobile ? '0 20px' : '0 20px'
         }} className="overflow-hidden space-y-2">
           {/* Row 1 (Right → Left) */}
           <div className="w-full overflow-hidden">

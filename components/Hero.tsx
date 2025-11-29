@@ -58,9 +58,8 @@ const BrandLogo = ({ brand, size = 20 }: { brand: string; size?: number }) => {
 
 export default function Hero() {
   const phrases = [
-    "✉️ +60 email templates",
-    "🏆 Top #1 receipt generator ",
-    "🌍 +6500 users worlwide using it",
+    "✉️ +70 brands receipts ",
+  
   ];
 
    const brands = [
@@ -195,76 +194,7 @@ export default function Hero() {
           <span style={{ opacity: blink ? 1 : 0 }}>|</span>
         </h5>
 
-        {/* CTA Banner */}
-        <div
-          className="cta"
-          style={{
-            marginTop: 24,
-            display: "flex",
-            justifyContent: "center",
-            gap: 12,
-            flexWrap: isMobile ? "wrap" : "nowrap",
-            width: '100%'
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 8,
-              textAlign: "center",
-              justifyContent: "center",
-              width: '100%'
-            }}
-          >
-            <div
-              style={{
-                padding: "4px 10px",
-                backgroundColor: "#e9f4ff",
-                display: "flex",
-                alignItems: "center",
-            
-              }}
-            >
-              <p style={{ color: "#0060f2", fontWeight: "500", margin: 0, fontSize: isMobile ? "14px" : "16px" }}>
-                New
-              </p>
-            </div>
-
-            {isMobile
-    ? "For any assistance, go to"
-    : "For any assistance or help, contact us at this Discord"}
-  <br />
-
-            <a
-              href="https://discord.gg/2ZRQu2uT62"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                padding: "3px 16px",
-                backgroundColor: "#5462ea",
-                display: "flex",
-                alignItems: "center",
-                cursor: "pointer",
-                textDecoration: "none",
-              }}
-            >
-              <p style={{ 
-                color: "white", 
-                fontWeight: "500", 
-                margin: 0, 
-                fontSize: isMobile ? "14px" : "16px",
-                display: "flex",
-                alignItems: "center",
-                gap: 4,
-                whiteSpace: "nowrap"
-              }}>
-                Discord <span style={{ fontSize: "14px" }}>↗</span>
-              </p>
-            </a>
-          </div>
-        </div>
-
+      
    <div
   style={{
     width: '90%',
@@ -282,7 +212,7 @@ export default function Hero() {
 
         {/* Scrolling Brand Rows - Full width */}
         <div style={{ 
-          marginTop: isMobile ? '10%' : '1%', 
+          marginTop: isMobile ? '1%' : '1%', 
           width: '100%',
           padding: isMobile ? '0 16px' : '0 20px'
         }} className="overflow-hidden space-y-8 mt-20">
@@ -292,12 +222,13 @@ export default function Hero() {
               {doubledBrands.map((brand, index) => (
                 <li
                   key={`row1-${index}`}
-                  className="flex items-center justify-center px-4 py-2 shadow flex-shrink-0"
+                  className="flex items-center justify-center px-2 py-2 shadow flex-shrink-0"
                   style={{
                     background: "#efefef",
                     whiteSpace: "nowrap",
                     padding: isMobile ? '6px 12px' : '8px 16px',
                     fontSize: isMobile ? '12px' : '14px',
+                    borderRadius:5,
                
                     gap: '8px'
                   }}

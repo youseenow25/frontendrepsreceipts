@@ -43,9 +43,52 @@ export default function Page() {
         {/* Receipts Examples Section */}
         <section className="receipts-examples">
           <div className="container">
+<div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 8,
+              textAlign: "center",
+              justifyContent: "center",
+              width: '100%',
+              fontSize:20
+            }}
+          >
+           
+
+       
+  
+
+            <a
+              href="/brands"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                padding: "3px 16px",
+                backgroundColor: "#5462ea",
+                display: "flex",
+                alignItems: "center",
+                cursor: "pointer",
+                textDecoration: "none",
+              }}
+            >
+              <p style={{ 
+                color: "white", 
+                fontWeight: "500", 
+                margin: 0, 
+                fontSize: "16px",
+                display: "flex",
+                alignItems: "center",
+                gap: 4,
+                whiteSpace: "nowrap"
+              }}>
+                Some result examples, see all 69 brands <span style={{ fontSize: "14px" }}>↗</span>
+              </p>
+            </a>
+          </div>
            
             
-            <div className="receipts-grid">
+            <div style={{marginTop:10}} className="receipts-grid">
               {brands.map((brand) => (
                 <Link
                   key={brand}
@@ -188,10 +231,7 @@ export default function Page() {
         .luxury-radial {
           position: absolute;
           inset: 0;
-          background: 
-            radial-gradient(ellipse 600px 400px at 20% 100px, rgba(212, 175, 55, 0.1), transparent 70%),
-            radial-gradient(ellipse 800px 500px at 80% 300px, rgba(201, 176, 55, 0.08), transparent 70%),
-            radial-gradient(ellipse 1000px 600px at center, rgba(0, 0, 0, 0.03), transparent 70%);
+         
           pointer-events: none;
           z-index: 0;
         }

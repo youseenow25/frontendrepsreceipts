@@ -5,6 +5,10 @@ import BrandReceiptGenerator from '@/components/BrandReceiptGenerator'
 import { Suspense } from 'react'
 import Header from '@/components/Header'
 import Hero from '@/components/Hero2'
+import Link from 'next/link';
+
+import Image from 'next/image'
+import Footer from '@/components/Footer'
 
 type Props = {
   params: { brand: string }
@@ -18,48 +22,44 @@ export async function generateMetadata(
   const brand = params.brand
   const brandData = brandsSchema.brands[brand]
   
-  if (!brandData) {
-    return {
-      title: 'Brand Not Found - HubReceipts',
-    }
-  }
+  
 
   const brandName = toLabel(brand)
-  const description = `Generate authentic ${brandName} receipts instantly. Create professional ${brandName} invoice templates with real designs, logos, and formatting. Free ${brandName} receipt maker.`
+  const description = `Generate emal receipts for ${brandName}  instantly.`
   const logoUrl = `https://www.hubreceipts.com/brand-logos/${brand.toLowerCase().replace(/[^a-z0-9]/g, '_')}.png`
   
   return {
-    title: `${brandName} Receipt Generator - Create Authentic ${brandName} Invoices | HubReceipts`,
+    title: `${brandName} StockX, Farfetch, Canada Goose +65 brands receipts.`,
     description: description,
     keywords: [
+      `${brandName} template`,
       `${brandName} receipt`,
-      `${brandName} invoice`,
       `${brandName} receipt generator`,
       `${brandName} invoice template`,
       `${brandName.toLowerCase()} receipt maker`,
       'free receipt generator',
       'luxury brand receipts',
-      'authentic receipt generator'
+   
     ].join(', '),
     openGraph: {
-      title: `${brandName} Receipt Generator - HubReceipts`,
+      title: `${brandName} StockX, Farfetch, Canada Goose +65 brands receipts.`,
       description: description,
       type: 'website',
       locale: 'en_US',
       url: `https://www.hubreceipts.com/brands/${brand}`,
-      siteName: 'HubReceipts',
+      siteName: 'RepReceipts',
       images: [
         {
           url: logoUrl,
-          width: 200,
-          height: 200,
+          width: 190,
+          height: 190,
           alt: `${brandName} Logo`,
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${brandName} Receipt Generator - HubReceipts`,
+      title: `${brandName} StockX, Farfetch, Canada Goose +65 brands receipts`,
       description: description,
       images: [logoUrl],
     },
@@ -111,6 +111,10 @@ function BrandPageLoading() {
 export default function BrandPage({ params }: Props) {
   const brand = params.brand
   const brandData = brandsSchema.brands[brand]
+
+  const brands = [
+  "apple", "gucci", "stockx", "nike", "flightclub", "louisvuitton", "saintlaurent","trapstar"
+]
   
   if (!brandData) {
     notFound()
@@ -124,12 +128,12 @@ export default function BrandPage({ params }: Props) {
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  'name': `${brandName} Receipt Generator`,
-  'description': `Generate authentic ${brandName} receipts with official designs and formatting. Create professional ${brandName} invoice templates instantly.`,
+  'name': `${brandName} receipt template`,
+  'description': `Generate 1:1 ${brandName}`,
   'image': logoUrl,
   'provider': {
     '@type': 'Organization',
-    'name': 'HubReceipts',
+    'name': 'RepReceipts',
     'url': 'https://www.hubreceipts.com'
   },
   'areaServed': 'Worldwide',
@@ -173,6 +177,80 @@ const structuredData = {
       <main className="main">
         <div className="luxury-radial" aria-hidden />
         <Header />
+          {/* Receipts Examples Section */}
+        <section style={{marginTop:'1%'}} className="receipts-examples">
+          <div className="container">
+<div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 200,
+              textAlign: "center",
+              justifyContent: "center",
+              width: '100%',
+              fontSize:20
+            }}
+          >
+           
+
+       
+  
+
+            <a
+              href="/brands"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                padding: "3px 16px",
+                backgroundColor: "#5462ea",
+                display: "flex",
+                alignItems: "center",
+                cursor: "pointer",
+                textDecoration: "none",
+              }}
+            >
+              <p style={{ 
+                color: "white", 
+                fontWeight: "500", 
+                margin: 0, 
+                fontSize: "16px",
+                display: "flex",
+                alignItems: "center",
+                gap: 4,
+                whiteSpace: "nowrap"
+              }}>
+                Some result examples, see all 69 brands <span style={{ fontSize: "14px" }}>↗</span>
+              </p>
+            </a>
+          </div>
+           
+            
+            <div style={{marginTop:10}} className="receipts-grid">
+              {brands.map((brand) => (
+                <Link
+                  key={brand}
+                  href={`/brands/${brand}`}
+                  className="receipt-card"
+                  aria-label={`View the ${toLabel(brand)} receipt generator`}
+                >
+                  <div className="receipt-image">
+                    <Image
+                      src={`/${brand}_example.png`}
+                      alt={`${toLabel(brand)} receipt example`}
+                      width={120}
+                      height={160}
+                      style={{
+                        objectFit: "contain",
+                      }}
+                    />
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+           <div style={{height:1, width:'150%', background:'linear-gradient(90deg, transparent, #d4af37, #c9b037, transparent)'}} />
+        <div style={{width:'100%'}} ></div>
         <Hero brandName={brandName} />
         
         {/* Brand Receipt Generator */}
@@ -181,6 +259,8 @@ const structuredData = {
             <BrandReceiptGenerator preSelectedBrand={brand} />
           </Suspense>
         </div>
+
+        <Footer/>
       </main>
 
       <style>{`
@@ -188,6 +268,40 @@ const structuredData = {
           padding: 80px 0 60px;
           background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
           text-align: center;
+        }
+             .receipts-grid {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 6px;
+          flex-wrap: nowrap;
+          max-width: 900px;
+          margin: 0 auto;
+        }
+
+        .receipt-card {
+          background: transparent;
+          padding: 0;
+          border-radius: 0;
+          text-align: center;
+          transition: all 0.2s ease;
+          border: none;
+          flex-shrink: 0;
+        }
+
+        .receipt-card:hover {
+          transform: translateY(-2px);
+        }
+
+        .receipt-image {
+          margin: 0;
+          border-radius: 2px;
+          overflow: hidden;
+          background: transparent;
+          padding: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
         .brand-hero-content {

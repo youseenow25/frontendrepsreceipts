@@ -121,7 +121,7 @@ export default function Header() {
         onClick={() => navigateTo("/")}
         style={{ display: "flex", alignItems: "center", gap: 8, border: "none", background: "none" }}
       >
-        <Image width={60} height={60} alt="Logo" src={"/logoheader.png"} />
+   
       </button>
       <button onClick={toggleMobileMenu} style={{ border: "none", background: "none" }}>
         <X size={28} color="black" />
@@ -141,7 +141,7 @@ export default function Header() {
           cursor: "pointer",
         }}
       >
-        💰 Pricing
+        Pricing
       </button>
 
       <button
@@ -155,36 +155,11 @@ export default function Header() {
           cursor: "pointer",
         }}
       >
-        🏷️ Brands
+        Brands
       </button>
 
-      <button
-        onClick={() => navigateTo("/#examples")}
-        style={{
-          background: "none",
-          border: "none",
-          fontSize: 20,
-          fontWeight: 600,
-          color: "#000",
-          cursor: "pointer",
-        }}
-      >
-        🧾 Examples of Usage
-      </button>
+      
 
-      <button
-        onClick={() => navigateTo("/#faq")}
-        style={{
-          background: "none",
-          border: "none",
-          fontSize: 20,
-          fontWeight: 600,
-          color: "#000",
-          cursor: "pointer",
-        }}
-      >
-        ❓ FAQ
-      </button>
     </div>
 
     {/* Bottom: Auth Actions */}
@@ -218,7 +193,7 @@ export default function Header() {
               fontSize: "16px",
             }}
           >
-            Logout
+            Log out
           </button>
         </div>
       ) : (
@@ -287,7 +262,7 @@ export default function Header() {
         >
           {/* Simple static header during SSR */}
           <button onClick={() => router.push("/")} style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <Image width={110} height={110} alt="Webpage logo" src={'/hublogo.png'} />
+            <Image width={110} height={110} alt="Webpage logo" src={'/logo.png'} />
           </button>
         </div>
       </header>
@@ -322,7 +297,7 @@ export default function Header() {
             width={isMobile ? 60 : 90} 
             height={isMobile ? 60 : 900} 
             alt="Webpage logo" 
-            src={'/logoheader.png'} 
+            src={'/logo.png'} 
           />
         </button>
 
@@ -355,7 +330,7 @@ export default function Header() {
                 }}
               >
                 <span style={{ color: 'black', fontWeight:'bold' }}>
-                  💰 Pricing
+                  Pricing
                 </span>
                    <ChevronRight size={20}/>
                
@@ -403,50 +378,12 @@ export default function Header() {
               }}
             >
               <span style={{ color: 'black', fontWeight:'bold' }}>
-                🏷️ Brands
+                Our Brands
               </span>
               <ChevronRight size={20}/>
             </button>
 
-            {/* Examples */}
-            <a
-              href="#examples"
-              style={{
-                textDecoration: "none",
-                color: "#000",
-                fontWeight: 500,
-                display: "flex",
-                alignItems: "center",
-                gap: 4,
-                padding: "8px 12px",
-                borderRadius: 6,
-              }}
-            >
-               <span style={{ color: 'black', fontWeight:'bold' }}>
-               ✨ Examples of usage
-              </span>
-                 <ChevronRight size={20}/>
-            </a>
 
-            {/* FAQ */}
-            <a
-              href="#faq"
-              style={{
-                textDecoration: "none",
-                color: "#000",
-                fontWeight: 500,
-                display: "flex",
-                alignItems: "center",
-                gap: 4,
-                padding: "8px 12px",
-                borderRadius: 6,
-              }}
-            >
-                 <span style={{ color: 'black', fontWeight:'bold' }}>
-               ❓ FAQ
-              </span>
-              <ChevronRight size={20}/>
-            </a>
           </div>
         )}
 
@@ -465,11 +402,11 @@ export default function Header() {
             !isMobile ? (
               <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
                 <div style={{ 
-                  color: "#000", 
+                  color: "white", 
                   fontWeight: 500,
                   fontSize: "14px",
                   padding: "8px 12px",
-                  backgroundColor: "#f8f9fa",
+                  backgroundColor: "black",
                   borderRadius: 8,
                   border: "1px solid #ddd"
                 }}>
@@ -489,7 +426,7 @@ export default function Header() {
                     backgroundColor: "white"
                   }}
                 >
-                  Logout
+                  Log out
                 </button>
               </div>
             ) : (
@@ -510,6 +447,7 @@ export default function Header() {
                   style={{
                     background:'#efefef',
                     display:'flex',
+                    borderRadius:10,
                 
               
                 
@@ -527,9 +465,9 @@ export default function Header() {
                     gap:5
                   }}
                 >
-                    <Lock size={18} color="black" className="icon-lock" />
+                  
                   <span style={{color:'black'}} >
-                       Log in
+                       Log in now
 
                   </span>
                 
@@ -537,11 +475,12 @@ export default function Header() {
                 <button
                   onClick={goToRegister}
                   style={{
-                    backgroundColor: "#4468f9",
+                    backgroundColor: "black",
                     color: "white",
                     padding: "10px 40px",
                     border: "none",
                     fontWeight: 600,
+                    borderRadius:10,
                     whiteSpace: "nowrap",
                
                     cursor: "pointer",

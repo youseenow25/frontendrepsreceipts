@@ -954,12 +954,12 @@ function ImageUploaderContent({ preSelectedBrand, isBrandPage = false }: ImageUp
           <div className="upload-placeholder">
              <div className="upload-icon">
              <span style={{fontSize:30}} >
-              📎
+              📷
               </span> 
               </div>
               <div className="upload-text">
-                <p>Upload the product image</p>
-                <span>PNG, JPG up to 5MB</span>
+                <p>Upload an image</p>
+                <span> JPG, PNG, WEBP less than 4MB</span>
               </div>
           </div>
         )}
@@ -978,7 +978,7 @@ function ImageUploaderContent({ preSelectedBrand, isBrandPage = false }: ImageUp
         {/* Language Selector */}
         <div className="field">
           <label htmlFor="language" className="field-label">
-            Language
+            Select the Language
           </label>
           <CustomSelect
             value={selectedLanguage.code}
@@ -994,7 +994,7 @@ function ImageUploaderContent({ preSelectedBrand, isBrandPage = false }: ImageUp
         {/* Brand Selector - Custom Dropdown with Logos */}
         <div className="brand-picker" ref={brandPickerRef}>
           <label htmlFor="brand" className="field-label">
-            Brand *
+            Select the Brand
           </label>
           <div className="picker-container">
             <button
@@ -1070,17 +1070,15 @@ function ImageUploaderContent({ preSelectedBrand, isBrandPage = false }: ImageUp
             }))}
             placeholder="Select currency"
           />
-          <div className="currency-display-note">
-            Selected: <strong>{selectedCurrency.symbol}</strong> - {selectedCurrency.name}
-          </div>
+          
         </div>
 
         {/* Email Field - Always Visible */}
         <div className="field">
           <label htmlFor="email">
-            Email Address *
+            Email Address 
             {userEmail && (
-              <span className="default-badge"> (the receipt will be sent to this email)</span>
+              <span className="default-badge"> (the receipt will sent to the same email of your account)</span>
             )}
           </label>
           <input
@@ -1112,7 +1110,7 @@ function ImageUploaderContent({ preSelectedBrand, isBrandPage = false }: ImageUp
                 return (
                   <div key={field} className="field">
                     <label htmlFor={field}>
-                      {toLabel(field)} *
+                      {toLabel(field)} 
                       {isDateField && !formData[field] && (
                         <span className="auto-detected-badge"> (auto-filled)</span>
                       )}
@@ -1158,11 +1156,12 @@ function ImageUploaderContent({ preSelectedBrand, isBrandPage = false }: ImageUp
         )}
 
         <button
+      
           type="submit"
           className="submit-btn"
           disabled={!isFormValid || loading}
         >
-          {loading ? "Generating..." : `Generate ${brand ? toLabel(brand) + ' ' : ''}Receipt`}
+          {loading ? "Generating..." : `Generate ${brand ? toLabel(brand) + ' ' : ''}Receipt ⚡⚡`}
         </button>
 
         {/* SEO Keywords Section */}
@@ -1682,25 +1681,31 @@ function ImageUploaderContent({ preSelectedBrand, isBrandPage = false }: ImageUp
         }
         
         .submit-btn {
-          margin-top: 6px;
-          padding: 12px 24px;
-          background: black;
-          color: white;
-          font-weight: 600;
-          border-radius: 8px;
-          border: none;
-          cursor: pointer;
-          transition: background 0.2s ease;
-          width: fit-content;
-          font-size: 16px;
-        }
+
+        
+  margin-top: 6px;
+  padding: 12px 24px;
+  background: green;
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  width: 100%;        /* full width */
+  font-size: 16px;
+  display: block;     /* optional but helps in some cases */
+}
+
         
         .submit-btn:disabled {
+          background: blue;
+        
           background: #bbb;
           cursor: not-allowed;
         }
         
-        .submit-btn:hover:not(:disabled) { background: #333; }
+        .submit-btn:hover:not(:disabled) { background: green; }
         
         /* Toast Styles */
         .toast {

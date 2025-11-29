@@ -55,23 +55,23 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div className="min-h-screen  flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="flex justify-center">
-          <Image width={150} height={150} src={"/logoheader.png"} alt="logo"  >
+          <Image width={150} height={150} src={"/logo.png"} alt="logo"  >
 
           </Image>
         </div>
         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-          Sign in to your account
+          Log in
         </h2>
         <p className="mt-2 text-center text-sm text-gray-600">
-          Don't have an account?{" "}
+          You don' have an account?{" "}
           <button
             onClick={() => router.push("/register")}
-            className="font-medium text-blue-600 hover:text-blue-500 transition-colors"
+            className="font-medium text-purple-600 hover:text-blue-500 transition-colors"
           >
-            Sign up
+            Register now
           </button>
         </p>
       </div>
@@ -117,20 +117,7 @@ export default function LoginPage() {
               </div>
             </div>
 
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <input
-                  id="remember-me"
-                  name="remember-me"
-                  type="checkbox"
-                  className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                />
-                <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
-                  Remember me
-                </label>
-              </div>
-
-            </div>
+         
 
             {error && (
               <div className="rounded-md bg-red-50 p-4">
@@ -149,9 +136,10 @@ export default function LoginPage() {
 
             <div>
               <button
+              style={{background:'black'}}
                 type="submit"
                 disabled={isLoading}
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isLoading ? (
                   <div className="flex items-center">
@@ -159,12 +147,12 @@ export default function LoginPage() {
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
-                    Signing in...
+                    Wait a sec ...
                   </div>
                 ) : (
 
-                  <span style={{fontWeight:'600', fontSize:20}} >
-                    Sign in
+                  <span style={{fontWeight:'900', fontSize:20}} >
+                    Log in
 
                   </span>
             

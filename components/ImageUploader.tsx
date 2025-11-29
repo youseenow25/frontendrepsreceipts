@@ -771,7 +771,7 @@ export default function ImageUploader() {
           }
         }
         
-        // FOR CURRENCY FIELD: ENSURE WE ALWAYS SEND SYMBOL
+   
         if (f === "currency") {
           // If no value is set, use the selected currency symbol
           if (!value) {
@@ -941,12 +941,12 @@ export default function ImageUploader() {
           <div className="upload-placeholder">
              <div className="upload-icon">
              <span style={{fontSize:30}} >
-              📎
+              📸
               </span> 
               </div>
               <div className="upload-text">
-                <p>Upload the product image</p>
-                <span>PNG, JPG up to 5MB</span>
+                <p>Upload the image</p>
+                <span>JPG, PNG, WEBP less than 5MB</span>
               </div>
           </div>
         )}
@@ -965,7 +965,7 @@ export default function ImageUploader() {
         {/* Language Selector */}
         <div className="field">
           <label htmlFor="language" className="field-label">
-            Language
+            Select the language
           </label>
           <CustomSelect
             value={selectedLanguage.code}
@@ -980,7 +980,7 @@ export default function ImageUploader() {
 
         {/* Brand Selector - Custom Dropdown with Logos */}
         <div className="brand-picker" ref={brandPickerRef}>
-          <label htmlFor="brand" className="field-label">Brand *</label>
+          <label htmlFor="brand" className="field-label">Select the Brand </label>
           <div className="picker-container">
             <button
               type="button"
@@ -1053,15 +1053,13 @@ export default function ImageUploader() {
             }))}
             placeholder="Select currency"
           />
-          <div className="currency-display-note">
-            Selected: <strong>{selectedCurrency.symbol}</strong> - {selectedCurrency.name}
-          </div>
+          
         </div>
 
         {/* Email Field - Always Visible */}
         <div className="field">
           <label htmlFor="email">
-            Email Address *
+            Email Address 
             {userEmail && (
               <span className="default-badge"> (the receipt will be sent to this email)</span>
             )}
@@ -1137,7 +1135,7 @@ export default function ImageUploader() {
               })}
           </div>
         ) : (
-          <p className="brand-hint">Choose a brand to see its required fields.</p>
+         null
         )}
 
         <button
@@ -1145,7 +1143,12 @@ export default function ImageUploader() {
           className="submit-btn"
           disabled={!isFormValid || loading}
         >
-          {loading ? "Generating..." : "Send receipt to my email"}
+          <span style={{fontSize:18, fontWeight:'bold'}} >
+
+                     {loading ? "Generating..." : "Generate Now ⚡️"}
+
+          </span>
+ 
         </button>
       </form>
 
@@ -1173,7 +1176,7 @@ export default function ImageUploader() {
         }
         
         .image-uploader {
-          border: 2px dashed #ccc;
+          border: 3px dashed #ccc;
           border-radius: 12px;
           padding: 24px;
           text-align: center;
@@ -1564,27 +1567,31 @@ export default function ImageUploader() {
           color: #d32f2f;
           margin-top: 4px;
         }
+          
         
-        .submit-btn {
-          margin-top: 6px;
-          padding: 12px 24px;
-          background: black;
-          color: white;
-          font-weight: 600;
-          border-radius: 8px;
-          border: none;
-          cursor: pointer;
-          transition: background 0.2s ease;
-          width: fit-content;
-          font-size: 16px;
-        }
+       .submit-btn {
+
+  width: 100%;
+  height: 40px;
+
+  
+  background: green ;
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  font-size: 16px;
+}
+
         
         .submit-btn:disabled {
           background: #bbb;
           cursor: not-allowed;
         }
         
-        .submit-btn:hover:not(:disabled) { background: #333; }
+        .submit-btn:hover:not(:disabled) { background: green; }
         
         /* Toast Styles */
         .toast {

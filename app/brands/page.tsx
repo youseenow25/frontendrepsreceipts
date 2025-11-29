@@ -31,14 +31,36 @@ export default function BrandsIndexPage() {
 
         <section className="brands-directory">
           <div className="container centered">
-            <p className="eyebrow">All Brands</p>
-            <h1>Explore Every Receipt Generator</h1>
-            <p className="subtitle">
-              Choose a brand below to open its dedicated receipt generator page with tailored metadata,
-              structured data, and fields.
-            </p>
+           
+            <a
+              href="/brands"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                padding: "3px 16px",
+                backgroundColor: "#5462ea",
+                display: "flex",
+                alignItems: "center",
+                cursor: "pointer",
+                textDecoration: "none",
+              }}
+            >
+              <p style={{ 
+                color: "white", 
+                fontWeight: "500", 
+                margin: 0, 
+                fontSize: "16px",
+                display: "flex",
+                alignItems: "center",
+                gap: 4,
+                whiteSpace: "nowrap"
+              }}>
+                All our brands available <span style={{ fontSize: "14px" }}></span>
+              </p>
+            </a>
+          
 
-            <div className="brands-directory-grid">
+            <div style={{marginTop:20}} className="brands-directory-grid">
               {brandList.map((brand) => (
                 <Link
                   key={brand}
