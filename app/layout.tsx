@@ -4,24 +4,24 @@ import { Analytics } from "@vercel/analytics/react"
 import Script from 'next/script'
 
 export const metadata: Metadata = {
-  title: 'HubReceipts - Generate Authentic Receipts for 100+ Luxury & Streetwear Brands',
+  title: 'Generate StockX, Farfetch, +70 brands receipts',
   description: 'Create realistic receipts for StockX, Louis Vuitton, Dior, Gucci, Nike, Supreme, Balenciaga, Off-White & 100+ premium brands. Professional receipt generator for luxury documentation and purchase verification.',
-  metadataBase: new URL('https://www.hubreceipts.com'),
+  metadataBase: new URL('https://www.repsreceipts.com'),
   alternates: {
     canonical: '/',
   },
   
   openGraph: {
-    title: 'HubReceipts - Professional Receipt Generator for Luxury Brands',
-    description: 'Generate authentic receipts for 100+ luxury and streetwear brands. Create professional receipt templates instantly.',
-    url: 'https://www.hubreceipts.com',
-    siteName: 'HubReceipts',
+    title: 'StockX, Farfetch, Canada Goose +70 brands receipt',
+    description: 'Generate receipts for StockX, Farfetch, Canada Goose +70 brands.',
+    url: 'https://www.repsreceipts.com',
+    siteName: 'RepsReceipts',
     images: [
       {
         url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'HubReceipts - Professional Receipt Generator',
+        width: 1150,
+        height: 600,
+        alt: 'RepsReceipts - Receipt Generator',
       },
     ],
     locale: 'en_US',
@@ -30,8 +30,8 @@ export const metadata: Metadata = {
 
   twitter: {
     card: 'summary_large_image',
-    title: 'HubReceipts - Professional Receipt Generator',
-    description: 'Generate authentic receipts for 100+ luxury and streetwear brands',
+    title: 'RepsReceipts - Receipt Generator',
+    description: 'Generate receipts for StockX, Farfetch +70 brands',
     images: ['/og-image.jpg'],
   },
 
@@ -49,9 +49,9 @@ export const metadata: Metadata = {
     'luxury fashion receipts',
     'streetwear receipts'
   ],
-  authors: [{ name: 'HubReceipts' }],
-  creator: 'HubReceipts',
-  publisher: 'HubReceipts',
+  authors: [{ name: 'RepsReceipts' }],
+  creator: 'RepsReceipts',
+  publisher: 'RepsReceipts',
   robots: {
     index: true,
     follow: true,
@@ -144,10 +144,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:alt" content="HubReceipts - Professional Receipt Generator for Luxury Brands" />
+        <meta property="og:image:alt" content="RepsReceipts - Professional Receipt Generator for Luxury Brands" />
         
         {/* TWITTER ADDITIONAL TAGS */}
-        <meta name="twitter:image:alt" content="HubReceipts - Generate authentic receipts for luxury brands" />
+        <meta name="twitter:image:alt" content="RepsReceipts Generate receipts for luxury brands" />
 
         {/* ✅ SCHEMA MARKUP FOR SaaS */}
 
@@ -158,13 +158,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite", 
-              "name": "HubReceipts",
-              "url": "https://www.hubreceipts.com",
+              "name": "RepsReceipts",
+              "url": "https://www.repsreceipts.com",
               "description": "SaaS platform for generating authentic receipts for 100+ luxury and streetwear brands",
-              "thumbnailUrl": "https://www.hubreceipts.com/og-image.jpg",
+              "thumbnailUrl": "https://www.repsreceipts.com/og-image.jpg",
               "potentialAction": {
                 "@type": "SearchAction",
-                "target": "https://www.hubreceipts.com/search?q={search_term_string}",
+                "target": "https://www.repsreceipts.com/search?q={search_term_string}",
                 "query-input": "required name=search_term_string"
               }
             })
@@ -178,9 +178,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              "name": "HubReceipts",
-              "url": "https://www.hubreceipts.com",
-              "logo": "https://www.hubreceipts.com/hublogo.png",
+              "name": "RepsReceipts",
+              "url": "https://www.repsreceipts.com",
+              "logo": "https://www.repsreceipts.com/logo.png",
               "description": "SaaS platform providing professional receipt generation services for luxury brands",
               "sameAs": [],
               "address": {
@@ -189,7 +189,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               },
               "contactPoint": {
                 "@type": "ContactPoint",
-                "email": "support@hubreceipts.com",
+       
                 "contactType": "customer service",
                 "areaServed": "US",
                 "availableLanguage": ["English", "Spanish", "French"]
@@ -205,13 +205,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "SoftwareApplication",
-              "name": "HubReceipts Receipt Generator",
+              "name": "RepsReceipts receipt generator",
               "applicationCategory": "BusinessApplication",
               "operatingSystem": "Web Browser",
               "permissions": "InternetConnection",
               "description": "SaaS platform for generating authentic receipts for 100+ luxury and streetwear brands",
-              "url": "https://www.hubreceipts.com",
-              "image": "https://www.hubreceipts.com/og-image.jpg",
+              "url": "https://www.repsreceipts.com",
+              "image": "https://www.repsreceipts.com/og-image.jpg",
               "offers": {
                 "@type": "Offer",
                 "price": "0",
@@ -220,7 +220,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               },
               "author": {
                 "@type": "Organization",
-                "name": "HubReceipts"
+                "name": "RepsReceipts"
               }
             })
           }}
@@ -234,10 +234,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "@context": "https://schema.org",
               "@type": "Service",
               "serviceType": "Digital Receipt Generation",
-              "image": "https://www.hubreceipts.com/og-image.jpg",
+              "image": "https://www.repsreceipts.com/og-image.jpg",
               "provider": {
                 "@type": "Organization",
-                "name": "HubReceipts"
+                "name": "RepsReceipt"
               },
               "areaServed": "Worldwide",
               "hasOfferCatalog": {
@@ -248,8 +248,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
-                      "name": "Free Receipt Generation",
-                      "description": "Generate receipts with basic features"
+                      "name": "Receipt Generator",
+                      "description": "Generate receipts of. brands"
                     },
                     "price": "0",
                     "priceCurrency": "USD"

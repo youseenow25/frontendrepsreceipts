@@ -26,7 +26,7 @@ export async function generateMetadata(
 
   const brandName = toLabel(brand)
   const description = `Generate emal receipts for ${brandName}  instantly.`
-  const logoUrl = `https://www.hubreceipts.com/brand-logos/${brand.toLowerCase().replace(/[^a-z0-9]/g, '_')}.png`
+  const logoUrl = `https://www.repsreceipts.com/brand-logos/${brand.toLowerCase().replace(/[^a-z0-9]/g, '_')}.png`
   
   return {
     title: `${brandName} StockX, Farfetch, Canada Goose +65 brands receipts.`,
@@ -46,7 +46,7 @@ export async function generateMetadata(
       description: description,
       type: 'website',
       locale: 'en_US',
-      url: `https://www.hubreceipts.com/brands/${brand}`,
+      url: `https://www.repsreceipts.com/brands/${brand}`,
       siteName: 'RepReceipts',
       images: [
         {
@@ -64,7 +64,7 @@ export async function generateMetadata(
       images: [logoUrl],
     },
     alternates: {
-      canonical: `https://www.hubreceipts.com/brands/${brand}`
+      canonical: `https://www.repsreceipts.com/brands/${brand}`
     },
     robots: {
       index: true,
@@ -121,7 +121,7 @@ export default function BrandPage({ params }: Props) {
   }
 
   const brandName = toLabel(brand)
-  const logoUrl = `https://www.hubreceipts.com/brand-logos/${brand.toLowerCase().replace(/[^a-z0-9]/g, '_')}.png`
+  const logoUrl = `https://www.repsreceipts.com/brand-logos/${brand.toLowerCase().replace(/[^a-z0-9]/g, '_')}.png`
 
   // ✅ CORRECT: Page-specific structured data for THIS brand only
   // ✅ CORRECTO para SaaS - Service Schema apropiado
@@ -134,7 +134,7 @@ const structuredData = {
   'provider': {
     '@type': 'Organization',
     'name': 'RepReceipts',
-    'url': 'https://www.hubreceipts.com'
+    'url': 'https://www.repsreceipts.com'
   },
   'areaServed': 'Worldwide',
   'hasOfferCatalog': {
@@ -163,7 +163,7 @@ const structuredData = {
       }
     ]
   },
-  'termsOfService': 'https://www.hubreceipts.com/tos'
+ 
 }
 
   return (

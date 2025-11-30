@@ -2,7 +2,7 @@
 const nextConfig = {
   output: 'standalone', // Optional: for better deployment
   images: {
-    domains: ['api.hubreceipts.com'], // Add your image domains if needed
+    domains: ['api.repsreceipts.com'], // Add your image domains if needed
   },
   // Add any other config you need
 }

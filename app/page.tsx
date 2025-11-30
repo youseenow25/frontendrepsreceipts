@@ -169,13 +169,13 @@ export default function Page() {
 
         <section className="luxury-features">
           <div className="container">
-            <h2 className="features-title">Why Choose HubReceipts?</h2>
+            <h2 className="features-title">Why RepsReceipts?</h2>
             
             <div className="features-grid">
               <div className="feature-card">
                 <div className="feature-icon">🎨</div>
-                <h3>Authentic Designs</h3>
-                <p>StockX, Apple, Canada Goose +70 luxury brand receipts.</p>
+                <h3>1:1 Receipts</h3>
+                <p>StockX,Farfethc, Apple, Canada Goose +70 other luxury brand receipts.</p>
               </div>
               
               <div className="feature-card">
@@ -184,17 +184,9 @@ export default function Page() {
                 <p>Create professional luxury receipts in seconds with our advanced template system.</p>
               </div>
               
-              <div className="feature-card">
-                <div className="feature-icon">🔒</div>
-                <h3>Secure & Private</h3>
-                <p>Your financial data remains confidential with our secure processing system.</p>
-              </div>
+             
               
-              <div className="feature-card">
-                <div className="feature-icon">💼</div>
-                <h3>Business Ready</h3>
-                <p>Perfect for luxury resellers, investors, and business documentation.</p>
-              </div>
+            
             </div>
           </div>
         </section>

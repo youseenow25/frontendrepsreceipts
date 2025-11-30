@@ -4,10 +4,10 @@ const fs = require('fs');
 const path = require('path');
 
 async function generateFavicon() {
-  const sourceImage = 'public/hublogo.png';
+  const sourceImage = 'public/logo.png';
   
   if (!fs.existsSync(sourceImage)) {
-    console.error('Source image not found at public/hublogo.png');
+    console.error('Source image not found at public/logo.png');
     return;
   }
 

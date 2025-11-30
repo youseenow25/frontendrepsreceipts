@@ -23,12 +23,12 @@ export default function StructuredData() {
   const websiteStructuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'HubReceipts',
-    url: 'https://hubreceipts.com',
+    name: 'RepsReceipts',
+    url: 'https://www.repsreceipts.com',
     description: 'Generate authentic brand receipts instantly. Create professional receipt templates for luxury brands.',
     potentialAction: {
       '@type': 'SearchAction',
-      target: 'https://hubreceipts.com/brands?search={search_term_string}',
+      target: 'https://www.repsreceipts.com/brands?search={search_term_string}',
       'query-input': 'required name=search_term_string'
     }
   }
@@ -36,31 +36,28 @@ export default function StructuredData() {
   const organizationStructuredData = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'HubReceipts',
-    url: 'https://hubreceipts.com',
-    logo: 'https://hubreceipts.com/logo.png',
-    description: 'Professional brand receipt generator for luxury brands and premium products.',
-    sameAs: [
-      'https://twitter.com/hubreceipts',
-      'https://facebook.com/hubreceipts'
-    ]
+    name: 'RepsReceipts',
+    url: 'https://www.repsreceipts.com',
+    logo: 'https://www.repsreceipts.com/logo.png',
+    description: 'Professional receipt generator for luxury brands',
+    
   }
 
-  // CHANGE THIS: Use "Service" instead of "Product"
+
   const brandStructuredData = brands.map((brand) => ({
     '@context': 'https://schema.org',
-    '@type': 'Service', // ✅ CHANGED FROM "Product" TO "Service"
-    name: `${toLabel(brand)} Receipt Generator`,
-    description: `Generate authentic ${toLabel(brand)} receipts with official designs and formatting. Create professional ${toLabel(brand)} invoice templates instantly.`,
+    '@type': 'Service',
+    name: `${toLabel(brand)} 1:1 template`,
+    description: `Generate 1:1 ${toLabel(brand)} receipts with official templates.`,
     provider: {
       '@type': 'Organization',
-      name: 'HubReceipts'
+      name: 'RepsReceipts'
     },
     serviceType: 'Receipt Generation',
     areaServed: 'Worldwide',
     offers: {
       '@type': 'Offer',
-      url: `https://hubreceipts.com/brands/${brand}`,
+      url: `https://www.repsreceipts.com/brands/${brand}`,
       price: '0',
       priceCurrency: 'USD'
     }

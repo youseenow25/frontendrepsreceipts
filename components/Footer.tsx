@@ -57,25 +57,15 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#4A7DFF] text-white py-12 px-6 md:px-16">
+    <footer style={{background:'green'}} className=" text-white py-12 px-6 md:px-16">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-10 text-sm">
 
         {/* About us */}
         <div>
-          <h3 className="text-lg font-semibold mb-3">About us</h3>
-          <p className="text-white/90 mb-4 leading-relaxed">
-            Best quality receipts 1:1 in the market, over 70 brands templates.
-            <br />
-          </p>
+          
+          
 
-          <div className="space-y-2 text-white/90">
-            <div className="flex items-center gap-2">
-              <Mail size={16} />
-              <a href="mailto:hubreceipts@outlook.com" className="hover:underline">
-                hubreceipts@outlook.com
-              </a>
-            </div>
-          </div>
+         
 
           {/* Social Icons */}
           <div className="flex gap-4 mt-4 text-white">
@@ -124,16 +114,8 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-semibold mb-3">Quick Links</h3>
           <ul className="space-y-2 text-white/90 mb-6">
-            <li>
-              <a href="https://discord.com/invite/2ZRQu2uT62" target="_blank" rel="noopener noreferrer" className="hover:underline">
-                Our Discord Server
-              </a>
-            </li>
-            <li>
-              <a href="mailto:hubreceipts@outlook.com?subject=Support Request" className="hover:underline">
-                Our Email
-              </a>
-            </li>
+           
+            
             <li>
               <Link href="/" className="hover:underline">
                 Home
@@ -184,7 +166,7 @@ const Footer = () => {
       </div>
 
       <div className="mt-6 text-center text-white/90 text-xs">
-        ©2025, HubReceipts - Professional Receipt Generator
+        ©2025, RepReceipt - Professional Receipt Generator
       </div>
 
       <div className="mt-2 text-center text-white/90 text-sm">
