@@ -29,7 +29,7 @@ export async function generateMetadata(
   const logoUrl = `https://www.repsreceipts.com/brand-logos/${brand.toLowerCase().replace(/[^a-z0-9]/g, '_')}.png`
   
   return {
-    title: `${brandName} 1:1 template,  +70 brands `,
+    title: `${brandName} 1:1 template, +70 brands `,
     description: description,
     keywords: [
       `${brandName} template`,
@@ -42,7 +42,7 @@ export async function generateMetadata(
    
     ].join(', '),
     openGraph: {
-      title: `${brandName} StockX, Farfetch, Canada Goose +65 brands receipts.`,
+      title: `${brandName} 1:1 templates, +70 brands`,
       description: description,
       type: 'website',
       locale: 'en_US',
@@ -59,7 +59,7 @@ export async function generateMetadata(
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${brandName} StockX, Farfetch, Canada Goose +65 brands receipts`,
+      title: `${brandName} 1:1 template,  +70 brands`,
       description: description,
       images: [logoUrl],
     },

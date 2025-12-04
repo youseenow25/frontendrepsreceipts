@@ -33,11 +33,9 @@ export default function BrandReceiptGenerator({ preSelectedBrand }: BrandReceipt
       <div className="brand-seo-content">
         <h2>Create Professional {toLabel(preSelectedBrand)} Receipts</h2>
         <p>
-          Our {toLabel(preSelectedBrand)} receipt generator allows you to create authentic-looking 
+          Our {toLabel(preSelectedBrand)} 1:1 receipt generator allows you to make 
           {toLabel(preSelectedBrand)} receipts for your purchases, returns, or business records. 
-          Whether you need a {toLabel(preSelectedBrand)} invoice for accounting purposes or a 
-          receipt for personal records, our tool provides the most accurate and professional 
-          {toLabel(preSelectedBrand)} receipt templates available online.
+         
         </p>
         
         <h3>Why Use Our {toLabel(preSelectedBrand)} Receipt Maker?</h3>
