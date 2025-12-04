@@ -29,7 +29,7 @@ export async function generateMetadata(
   const logoUrl = `https://www.repsreceipts.com/brand-logos/${brand.toLowerCase().replace(/[^a-z0-9]/g, '_')}.png`
   
   return {
-    title: `${brandName} StockX, Farfetch, Canada Goose +65 brands receipts.`,
+    title: `${brandName} 1:1 template,  +70 brands `,
     description: description,
     keywords: [
       `${brandName} template`,
