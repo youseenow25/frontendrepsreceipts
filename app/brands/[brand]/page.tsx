@@ -59,7 +59,7 @@ export async function generateMetadata(
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${brandName} 1:1 template,  +70 brands`,
+      title: `${brandName} 1:1 template, +70 brands`,
       description: description,
       images: [logoUrl],
     },
