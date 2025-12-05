@@ -32,7 +32,7 @@ export async function generateMetadata(
     title: `${brandName} 1:1 template, +70 brands `,
     description: description,
     keywords: [
-      `${brandName} templates`,
+      `${brandName} template`,
       `${brandName} receipt`,
       `${brandName} receipt generator`,
       `${brandName} invoice template`,
