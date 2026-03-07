@@ -195,7 +195,7 @@ export default function Hero() {
       {/* Remove container class from the main div */}
       <div style={{ width: '100%' }}>
         <h5 style={{
-          fontSize: mobile ? "clamp(2rem, 8vw, 3rem)" : "clamp(3.5rem, 5vw, 5rem)",
+          fontSize: mobile ? "clamp(1rem, 3.9vw, 1.47rem)" : "clamp(1.72rem, 2.45vw, 2.45rem)",
           fontWeight: 500,
           lineHeight: 1.2,
           marginBottom: "1rem",
