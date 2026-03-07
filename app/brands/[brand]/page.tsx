@@ -440,7 +440,7 @@ export default function BrandPage({ params }: Props) {
         }
 
         .brand-hero-title {
-          font-size: 3rem;
+          font-size: 2.1rem;
           font-weight: 700;
           color: #1a1a1a;
           margin-bottom: 20px;
@@ -488,7 +488,7 @@ export default function BrandPage({ params }: Props) {
           }
 
           .brand-hero-title {
-            font-size: 2.2rem;
+            font-size: 1.54rem;
           }
 
           .brand-hero-description {
@@ -499,7 +499,7 @@ export default function BrandPage({ params }: Props) {
 
         @media (max-width: 480px) {
           .brand-hero-title {
-            font-size: 1.8rem;
+            font-size: 1.26rem;
           }
 
           .brand-hero-description {
