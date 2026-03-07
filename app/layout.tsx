@@ -74,33 +74,33 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/favicon.ico',
+        url: '/favicon.ico?v=1',
         sizes: 'any',
       },
       {
-        url: '/favicon-16x16.png',
+        url: '/favicon-16x16.png?v=1',
         sizes: '16x16',
         type: 'image/png',
       },
       {
-        url: '/favicon-32x32.png',
+        url: '/favicon-32x32.png?v=1',
         sizes: '32x32',
         type: 'image/png',
       },
       {
-        url: '/android-chrome-192x192.png',
+        url: '/android-chrome-192x192.png?v=1',
         sizes: '192x192',
         type: 'image/png',
       },
       {
-        url: '/android-chrome-512x512.png',
+        url: '/android-chrome-512x512.png?v=1',
         sizes: '512x512',
         type: 'image/png',
       },
     ],
     apple: [
       {
-        url: '/apple-touch-icon.png',
+        url: '/apple-touch-icon.png?v=1',
         sizes: '180x180',
         type: 'image/png',
       },
@@ -133,14 +133,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="robots" content="index, follow" />
 
         {/* FAVICONS - handled by metadata.icons export, manual links below for compatibility */}
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
-        
+        <link rel="icon" href="/favicon.ico?v=1" sizes="any" />
+        <link rel="icon" href="/favicon-32x32.png?v=1" type="image/png" sizes="32x32" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=1" sizes="180x180" />
+
         {/* THEME COLORS */}
         <meta name="theme-color" content="#000000" />
         <meta name="msapplication-TileColor" content="#000000" />
-        <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
 
         {/* ADDITIONAL OG TAGS */}
