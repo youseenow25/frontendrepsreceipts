@@ -1,0 +1,342 @@
+.telegram-button {
+  padding: 8px 24px;
+  background-color: #0088cc;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 136, 204, 0.3);
+  transition: all 0.3s ease;
+}
+
+.telegram-button:hover {
+  background-color: #006699;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 136, 204, 0.4);
+}
+
+.main {
+  position: relative;
+  overflow: hidden;
+}
+
+.luxury-radial {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Receipts Examples Section */
+.receipts-examples {
+  padding: 40px 0 30px 0;
+  background: transparent;
+  position: relative;
+}
+
+.examples-title {
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, #d4af37, #c9b037);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.examples-subtitle {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 30px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.receipts-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: nowrap;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.receipt-card {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  text-align: center;
+  transition: all 0.2s ease;
+  border: none;
+  flex-shrink: 0;
+}
+
+.receipt-card:hover {
+  transform: translateY(-2px);
+}
+
+.receipt-image {
+  margin: 0;
+  border-radius: 2px;
+  overflow: hidden;
+  background: transparent;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Luxury Brands Section */
+.luxury-brands {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  position: relative;
+}
+
+.brands-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #d4af37, #c9b037);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.brands-subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 60px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.brands-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.brand-card {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.brand-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #d4af37, #c9b037);
+}
+
+.brand-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 40px rgba(212, 175, 55, 0.15);
+}
+
+.brand-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.brand-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+}
+
+.brand-card p {
+  color: #666;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Features Section */
+.luxury-features {
+  padding: 10px 0;
+  background: white;
+}
+
+.features-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #1a1a1a, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.feature-card {
+  background: #fafafa;
+  padding: 40px 30px;
+  border-radius: 16px;
+  text-align: center;
+  border: 1px solid #e6e6e6;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  background: white;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+}
+
+.feature-card p {
+  color: #666;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.video-wrapper {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.video-wrapper iframe {
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .receipts-examples {
+    padding: 30px 0 20px 0;
+  }
+
+  .examples-title {
+    font-size: 1.5rem;
+  }
+
+  .examples-subtitle {
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+  }
+
+  .receipts-grid {
+    gap: 4px;
+    max-width: 100%;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding: 0 10px;
+  }
+
+  .receipt-image img {
+    width: 100px !important;
+    height: 130px !important;
+  }
+
+  .luxury-brands,
+  .luxury-features {
+    padding: 60px 0;
+  }
+
+  .brands-title,
+  .features-title {
+    font-size: 2rem;
+  }
+
+  .brands-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .brand-card {
+    padding: 30px 20px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .feature-card {
+    padding: 30px 20px;
+  }
+
+  .video-wrapper iframe {
+    width: 100%;
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .receipts-grid {
+    gap: 3px;
+  }
+
+  .receipt-image img {
+    width: 85px !important;
+    height: 110px !important;
+  }
+
+  .examples-title,
+  .brands-title,
+  .features-title {
+    font-size: 1.3rem;
+  }
+
+  .examples-subtitle,
+  .brands-subtitle {
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+  }
+
+  .video-wrapper iframe {
+    height: 250px;
+  }
+}
+
+@media (max-width: 360px) {
+  .receipt-image img {
+    width: 75px !important;
+    height: 100px !important;
+  }
+}

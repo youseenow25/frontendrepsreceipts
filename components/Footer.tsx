@@ -33,7 +33,7 @@ const Footer = () => {
       order_number: "Order Number",
       phone_number: "Phone Number",
       brand_name: "Brand Name",
-      taxes_percentatge: "Taxes Percentatge",
+      taxes_percentatge: "Taxes Percentage",
       currency: "Currency",
       debijenkorf: "De Bijenkorf",
       arcteryx: "Arc'teryx",
@@ -57,7 +57,7 @@ const Footer = () => {
   };
 
   return (
-    <footer style={{background:'green'}} className=" text-white py-12 px-6 md:px-16">
+    <footer style={{background:'#111827'}} className=" text-white py-12 px-6 md:px-16">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-10 text-sm">
 
         {/* About us */}
@@ -166,7 +166,7 @@ const Footer = () => {
       </div>
 
       <div className="mt-6 text-center text-white/90 text-xs">
-        ©2025, RepReceipt - Professional Receipt Generator
+        ©2026, RepsReceipts - Professional Receipt Generator
       </div>
 
       <div className="mt-2 text-center text-white/90 text-sm">

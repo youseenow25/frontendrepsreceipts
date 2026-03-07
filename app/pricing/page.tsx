@@ -177,8 +177,6 @@ export default function PricingPage() {
           letter-spacing: 6px;
           text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         ">PREVIEW ONLY</div>
-       
-       
       </div>
     `;
     return watermarkedHtml;
@@ -208,7 +206,7 @@ export default function PricingPage() {
         return;
       }
 
-      const response = await fetch('https://api.repsreceipts.com/api/payment/create-checkout-session', {
+      const response = await fetch('https://api.repsreceipt.com/api/payment/create-checkout-session', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
@@ -247,115 +245,93 @@ export default function PricingPage() {
     {
       id: '1-receipt',
       name: '1 Receipt',
-      priceusd: 2.99,
-  
+      priceusd: 4.99,
       description: 'Perfect for trying out our generator.',
-
     },
     {
       id: '1-day',
       name: '1 Day Access',
-      priceusd: 5.99,
-  
+      priceusd: 8.99,
       description: '24 hours of unlimited access.',
     },
     {
       id: '1-week',
       name: '1 Week Access',
-      priceusd: 10.99,
-   
+      priceusd: 13.99,
       description: 'Ideal for short-term projects.',
-
+      popular: true,
     },
   ];
 
   const bottomRowPlans = [
     {
-      id: '1-month',
-      name: '1 Month',
-      priceusd: 15.99,
-    
-      description: 'Best for regular business use.',
-   
-    },
-     {
       id: 'Lifetime',
       name: 'Lifetime',
-      priceusd: 59.99,
-    
-      description: 'Lifetime access',
-    
+      priceusd: 29.99,
+      description: 'Lifetime access to all features',
+      badge: 'BEST VALUE',
     },
-    
   ];
 
   const renderPlanCard = (plan: any) => (
     <div
       key={plan.id}
-      className={`relative rounded-2xl border-2 bg-white transition-all duration-300 hover:shadow-xl hover:scale-[1.02] ${
-        plan.popular ? 'border-yellow-400 shadow-lg' : 'border-gray-200 hover:border-blue-300'
+      className={`relative rounded-2xl border-2 bg-white transition-all duration-300 hover:shadow-2xl hover:scale-[1.03] ${
+        plan.popular ? 'border-blue-500 shadow-xl ring-4 ring-blue-100' : 'border-gray-200 hover:border-blue-300'
       }`}
     >
       {/* Badge */}
       {plan.badge && (
-        <div className="absolute -top-3 right-4">
-          <span className="rounded-full bg-gradient-to-r from-green-500 to-emerald-600 px-3 py-1 text-xs font-bold text-white shadow-md">
-            {plan.badge}
+        <div className="absolute -top-3 right-6">
+          <span className="rounded-full bg-gradient-to-r from-green-500 to-emerald-600 px-4 py-1.5 text-xs font-bold text-white shadow-lg">
+            ✨ {plan.badge}
           </span>
         </div>
       )}
       {plan.popular && (
-        <div className="absolute -top-4 left-1/2 z-10 -translate-x-1/2">
-          <span className="bg-gradient-to-r from-orange-500 to-red-500 px-6 py-2 text-white text-sm font-bold rounded-full shadow-lg">
+        <div className="absolute -top-5 left-1/2 z-10 -translate-x-1/2">
+          <span className="bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-2.5 text-white text-sm font-bold rounded-full shadow-xl">
             🏆 Most Popular
           </span>
         </div>
       )}
 
       {/* Content */}
-      <div className="p-6">
-        <h2 className="text-2xl font-bold text-gray-900 mb-0">{plan.name}</h2>
-        <p className="text-gray-600 mb-2 leading-relaxed">{plan.description}</p>
+      <div className="p-8">
+        <h2 className="text-3xl font-bold text-gray-900 mb-2">{plan.name}</h2>
+        <p className="text-gray-600 mb-6 leading-relaxed text-base">{plan.description}</p>
 
-        <div className="flex items-baseline justify-center space-x-0 mb-0">
-        
-       
-          <span style={{marginLeft:6}}  className="text-4xl font-light text-gray-900"> ${plan.priceusd}</span>
+        <div className="flex items-baseline justify-center mb-2">
+          <span className="text-5xl font-bold text-gray-900">${plan.priceusd}</span>
         </div>
 
-        <p className="text-sm text-gray-500 text-center mb-2">One-time payment • No auto-renewal</p>
+        <p className="text-sm text-gray-500 text-center mb-6 font-medium">One-time payment • No auto-renewal</p>
 
-        <div className="mt-2">
+        <div className="mt-4">
           <button
-          style={{background:'#0074d4'}}
             onClick={() => handleCheckout(plan.id)}
             disabled={loadingPlan === plan.id || !isLoggedIn}
-            className="w-full bg-gradient-to-r  hover:from-blue-700 hover:to-blue-800 disabled:from-gray-400 disabled:to-gray-500 text-white font-semibold py-3 px-0  transition-all duration-300 transform hover:shadow-lg disabled:shadow-none disabled:cursor-not-allowed flex items-center justify-center"
+            className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 disabled:from-gray-400 disabled:to-gray-500 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:shadow-xl disabled:shadow-none disabled:cursor-not-allowed flex items-center justify-center gap-2 text-lg"
           >
             {!isLoggedIn ? (
               <>
-                <ShoppingCart size={18} />
+                <ShoppingCart size={20} />
                 Login to Purchase
               </>
             ) : loadingPlan === plan.id ? (
               <>
-                <div className="animate-spin rounded-full h-2 w-2 border-0 border-white border-t-transparent"></div>
-                Redirecting...
+                <div className="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent"></div>
+                <span className="ml-2">Redirecting...</span>
               </>
             ) : (
               <>
-              <span style={{color:'white'}} >
-                 Pay with Apple Pay + 3
-
-              </span>
-           
-               
+                Pay with Apple Pay + 3
               </>
             )}
           </button>
-          
+
           {!isLoggedIn && (
-            <p className="mt-3 text-xs text-red-600 text-center font-medium">
+            <p className="mt-4 text-sm text-red-600 text-center font-semibold">
               Please log in to purchase
             </p>
           )}
@@ -374,7 +350,7 @@ export default function PricingPage() {
           <div className="bg-white rounded-2xl max-w-5xl w-full max-h-[95vh] overflow-hidden shadow-2xl border border-gray-200">
             <div className="flex justify-between items-center p-6 border-b border-gray-200 bg-gradient-to-r from-blue-50 to-indigo-50">
               <div>
-           
+                {/* Empty div for spacing */}
               </div>
               <div className="flex gap-3">
                 <button
@@ -390,10 +366,10 @@ export default function PricingPage() {
               {/* Show Full Receipt with Watermark Immediately */}
               <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-4 mb-6">
                 <div className="flex items-center gap-3">
-                  
                   <div>
-                  
-                    <p style={{fontWeight:'bold', fontSize:20}}  className="text-yellow-700 text-sm">In the browser the receipt doesn't look as good as when its sent via email</p>
+                    <p style={{fontWeight:'bold', fontSize:20}} className="text-yellow-700 text-sm">
+                      In the browser the receipt doesn't look as good as when its sent via email
+                    </p>
                   </div>
                 </div>
               </div>
@@ -408,8 +384,6 @@ export default function PricingPage() {
               {/* Call to Action Section */}
               <div className="text-center mt-8 bg-white rounded-2xl p-8 border-2 border-dashed border-green-200">
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">The receipt looks way better once it's sent via email</h3>
-               
-               
               </div>
             </div>
           </div>
@@ -421,7 +395,6 @@ export default function PricingPage() {
         <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-2 px-5 shadow-lg">
           <div className="flex items-center justify-between max-w-7xl mx-auto">
             <div className="flex items-center gap-4">
-              
               <div>
                 <h3 className="text-xl font-bold">Your Receipt is Ready! 🎉</h3>
                 <p className="text-blue-100 mt-1">
@@ -437,7 +410,6 @@ export default function PricingPage() {
                 <Eye size={18} />
                 View Receipt Preview
               </button>
-             
             </div>
           </div>
         </div>
@@ -453,20 +425,27 @@ export default function PricingPage() {
       )}
 
       {/* Main Content */}
-      <div style={{marginTop:10}}  className="flex-1">
+      <div style={{marginTop:10}} className="flex-1">
         {/* Hero Section */}
-       
+        <div className="text-center py-12 px-4">
+          <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            Choose Your Plan
+          </h1>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Generate professional receipts for any brand. Simple pricing, no hidden fees.
+          </p>
+        </div>
 
         {/* Top Row Plans */}
-        <section id="pricing-plans" className="mx-auto w-full max-w-6xl px-2 pb-2">
-          <div className="grid gap-2 lg:grid-cols-3">
+        <section id="pricing-plans" className="mx-auto w-full max-w-6xl px-6 pb-8">
+          <div className="grid gap-6 lg:grid-cols-3">
             {topRowPlans.map(renderPlanCard)}
           </div>
         </section>
 
-        {/* Bottom Row Plans */}
-        <section className="mx-auto w-full max-w-4xl px-6 pb-20">
-          <div className="grid gap-8 lg:grid-cols-2">
+        {/* Bottom Row Plans - Centered */}
+        <section className="mx-auto w-full max-w-2xl px-6 pb-20">
+          <div className="grid gap-8 lg:grid-cols-1">
             {bottomRowPlans.map(renderPlanCard)}
           </div>
         </section>

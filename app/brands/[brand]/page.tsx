@@ -9,6 +9,7 @@ import Link from 'next/link';
 
 import Image from 'next/image'
 import Footer from '@/components/Footer'
+import { brandSeoData, getRelatedBrands, categoryLabels } from '@/components/brandSeoData'
 
 type Props = {
   params: { brand: string }
@@ -25,29 +26,38 @@ export async function generateMetadata(
   
 
   const brandName = toLabel(brand)
-  const description = `Generate emal receipts for ${brandName}  instantly.`
+  const seoInfo = brandSeoData[brand]
+  const description = seoInfo
+    ? `${seoInfo.longDescription} Create ${brandName} receipts with accurate formatting and details.`
+    : `Generate professional email receipts for ${brandName} instantly. Realistic ${brandName} receipt generator with customizable details.`
   const logoUrl = `https://www.repsreceipts.com/brand-logos/${brand.toLowerCase().replace(/[^a-z0-9]/g, '_')}.png`
-  
+
   return {
-    title: `${brandName} 1:1 template, +70 brands `,
+    title: `${brandName} Receipt Generator | Create ${brandName} Receipts Online - RepsReceipts`,
     description: description,
     keywords: [
-      `${brandName} template`,
       `${brandName} receipt`,
       `${brandName} receipt generator`,
-      `${brandName} invoice template`,
-      `${brandName.toLowerCase()} receipt maker`,
-      'free receipt generator',
+      `${brandName} receipt maker`,
+      `${brandName} receipt template`,
+      `${brandName} invoice generator`,
+      `generate ${brandName.toLowerCase()} receipt`,
+      `${brandName.toLowerCase()} email receipt`,
+      `${brandName.toLowerCase()} order confirmation`,
+      'receipt generator',
       'luxury brand receipts',
-   
+      ...(seoInfo?.tags || []),
     ].join(', '),
+    alternates: {
+      canonical: `/brands/${brand}`,
+    },
     openGraph: {
-      title: `${brandName} 1:1 templates, +70 brands`,
+      title: `${brandName} Receipt Generator - Create Realistic ${brandName} Receipts`,
       description: description,
       type: 'website',
       locale: 'en_US',
       url: `https://www.repsreceipts.com/brands/${brand}`,
-      siteName: 'RepReceipts',
+      siteName: 'RepsReceipts',
       images: [
         {
           url: logoUrl,
@@ -59,12 +69,9 @@ export async function generateMetadata(
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${brandName} 1:1 template, +70 brands`,
+      title: `${brandName} Receipt Generator - RepsReceipts`,
       description: description,
       images: [logoUrl],
-    },
-    alternates: {
-      canonical: `https://www.repsreceipts.com/brands/${brand}`
     },
     robots: {
       index: true,
@@ -87,7 +94,7 @@ function toLabel(name: string): string {
     order_number: "Order Number",
     phone_number: "Phone Number",
     brand_name: "Brand Name",
-    taxes_percentatge: "Taxes Percentatge",
+    taxes_percentatge: "Taxes Percentage",
     currency: "Currency",
   };
   if (special[name]) return special[name];
@@ -121,138 +128,173 @@ export default function BrandPage({ params }: Props) {
   }
 
   const brandName = toLabel(brand)
+  const seoInfo = brandSeoData[brand]
+  const relatedBrands = getRelatedBrands(brand, 6)
   const logoUrl = `https://www.repsreceipts.com/brand-logos/${brand.toLowerCase().replace(/[^a-z0-9]/g, '_')}.png`
+  const categoryLabel = seoInfo ? categoryLabels[seoInfo.category] : ''
 
-  // ✅ CORRECT: Page-specific structured data for THIS brand only
-  // ✅ CORRECTO para SaaS - Service Schema apropiado
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  'name': `${brandName} receipt template`,
-  'description': `Generate 1:1 ${brandName}`,
-  'image': logoUrl,
-  'provider': {
-    '@type': 'Organization',
-    'name': 'RepReceipts',
-    'url': 'https://www.repsreceipts.com'
-  },
-  'areaServed': 'Worldwide',
-  'hasOfferCatalog': {
-    '@type': 'OfferCatalog',
-    'name': 'Receipt Generation Services',
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    'name': `${brandName} Receipt Generator`,
+    'description': seoInfo?.longDescription || `Generate professional ${brandName} email receipts instantly with accurate formatting and details.`,
+    'image': logoUrl,
+    'url': `https://www.repsreceipts.com/brands/${brand}`,
+    'provider': {
+      '@type': 'Organization',
+      'name': 'RepsReceipts',
+      'url': 'https://www.repsreceipts.com'
+    },
+    'areaServed': 'Worldwide',
+    'serviceType': 'Receipt Generation',
+    'hasOfferCatalog': {
+      '@type': 'OfferCatalog',
+      'name': `${brandName} Receipt Plans`,
+      'itemListElement': [
+        {
+          '@type': 'Offer',
+          'itemOffered': {
+            '@type': 'Service',
+            'name': `Single ${brandName} Receipt`,
+            'description': `Generate one professional ${brandName} receipt`
+          },
+          'price': '4.99',
+          'priceCurrency': 'USD',
+          'availability': 'https://schema.org/InStock'
+        },
+        {
+          '@type': 'Offer',
+          'itemOffered': {
+            '@type': 'Service',
+            'name': `Unlimited ${brandName} Receipts - Lifetime`,
+            'description': `Lifetime access to generate unlimited ${brandName} receipts and 70+ other brands`
+          },
+          'price': '29.99',
+          'priceCurrency': 'USD',
+          'availability': 'https://schema.org/InStock'
+        }
+      ]
+    },
+  }
+
+  const breadcrumbData = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
     'itemListElement': [
       {
-        '@type': 'Offer',
-        'itemOffered': {
-          '@type': 'Service',
-          'name': 'Free Receipt Generation',
-          'description': `Generate ${brandName} receipts with basic features`
-        },
-        'price': '0',
-        'priceCurrency': 'USD'
+        '@type': 'ListItem',
+        'position': 1,
+        'name': 'Home',
+        'item': 'https://www.repsreceipts.com'
       },
       {
-        '@type': 'Offer', 
-        'itemOffered': {
-          '@type': 'Service',
-          'name': 'Premium Receipt Generation',
-          'description': `Generate ${brandName} receipts with advanced features and premium templates`
-        },
-        'price': '4.99',
-        'priceCurrency': 'USD'
+        '@type': 'ListItem',
+        'position': 2,
+        'name': 'Brands',
+        'item': 'https://www.repsreceipts.com/brands'
+      },
+      {
+        '@type': 'ListItem',
+        'position': 3,
+        'name': `${brandName} Receipt Generator`,
+        'item': `https://www.repsreceipts.com/brands/${brand}`
       }
     ]
-  },
- 
-}
+  }
 
   return (
     <>
-      {/* ✅ Add structured data for THIS specific brand page */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbData) }}
+      />
+
       <main className="main">
         <div className="luxury-radial" aria-hidden />
         <Header />
-          {/* Receipts Examples Section */}
-        <section style={{marginTop:'1%'}} className="receipts-examples">
-          <div className="container">
-<div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 200,
-              textAlign: "center",
-              justifyContent: "center",
-              width: '100%',
-              fontSize:20
-            }}
-          >
-           
 
-       
-  
+        {/* SEO-rich brand hero with unique content */}
+        <section className="brand-seo-hero">
+          <div className="container" style={{ maxWidth: 900, margin: '0 auto', padding: '0 20px' }}>
+            {/* Breadcrumb navigation */}
+            <nav aria-label="Breadcrumb" style={{ marginBottom: 16, fontSize: 14, color: '#888' }}>
+              <Link href="/" style={{ color: '#888', textDecoration: 'none' }}>Home</Link>
+              <span style={{ margin: '0 8px' }}>/</span>
+              <Link href="/brands" style={{ color: '#888', textDecoration: 'none' }}>Brands</Link>
+              <span style={{ margin: '0 8px' }}>/</span>
+              <span style={{ color: '#333', fontWeight: 500 }}>{brandName}</span>
+            </nav>
 
-            <a
-              href="/brands"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                padding: "3px 16px",
-                backgroundColor: "#5462ea",
-                display: "flex",
-                alignItems: "center",
-                cursor: "pointer",
-                textDecoration: "none",
-              }}
-            >
-              <p style={{ 
-                color: "white", 
-                fontWeight: "500", 
-                margin: 0, 
-                fontSize: "16px",
-                display: "flex",
-                alignItems: "center",
-                gap: 4,
-                whiteSpace: "nowrap"
-              }}>
-                Some result examples, see all 69 brands <span style={{ fontSize: "14px" }}>↗</span>
-              </p>
-            </a>
-          </div>
-           
-            
-            <div style={{marginTop:10}} className="receipts-grid">
-              {brands.map((brand) => (
-                <Link
-                  key={brand}
-                  href={`/brands/${brand}`}
-                  className="receipt-card"
-                  aria-label={`View the ${toLabel(brand)} receipt generator`}
-                >
-                  <div className="receipt-image">
-                    <Image
-                      src={`/${brand}_example.png`}
-                      alt={`${toLabel(brand)} receipt example`}
-                      width={120}
-                      height={160}
-                      style={{
-                        objectFit: "contain",
-                      }}
-                    />
+            <h1 className="brand-hero-title">{brandName} Receipt Generator</h1>
+
+            {seoInfo && (
+              <>
+                <p className="brand-hero-description">{seoInfo.longDescription}</p>
+
+                {seoInfo.popularProducts.length > 0 && (
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, justifyContent: 'center', marginTop: 16 }}>
+                    {seoInfo.popularProducts.map((product) => (
+                      <span
+                        key={product}
+                        style={{
+                          background: '#f3f4f6',
+                          border: '1px solid #e5e7eb',
+                          padding: '4px 14px',
+                          fontSize: 13,
+                          color: '#555',
+                          fontWeight: 500,
+                        }}
+                      >
+                        {product}
+                      </span>
+                    ))}
                   </div>
-                </Link>
-              ))}
+                )}
+
+                {categoryLabel && (
+                  <p style={{ marginTop: 12, fontSize: 14, color: '#999' }}>
+                    Category: <Link href="/brands" style={{ color: '#0074d4', textDecoration: 'none', fontWeight: 500 }}>{categoryLabel}</Link>
+                  </p>
+                )}
+              </>
+            )}
+
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: 20 }}>
+              <a
+                href="https://t.me/+BF4byc1lOas4MDVk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="telegram-button"
+              >
+                <p style={{
+                  color: "white",
+                  fontWeight: "600",
+                  margin: 0,
+                  fontSize: "16px",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 8,
+                  whiteSpace: "nowrap"
+                }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style={{ flexShrink: 0 }}>
+                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
+                  </svg>
+                  Contact Support in Telegram
+                  <span style={{ fontSize: "18px" }}>↗</span>
+                </p>
+              </a>
             </div>
           </div>
         </section>
-           <div style={{height:1, width:'150%', background:'linear-gradient(90deg, transparent, #d4af37, #c9b037, transparent)'}} />
-        <div style={{width:'100%'}} ></div>
+
+        <div style={{height:1, width:'150%', background:'linear-gradient(90deg, transparent, #d4af37, #c9b037, transparent)'}} />
+
         <Hero brandName={brandName} />
-        
+
         {/* Brand Receipt Generator */}
         <div style={{width:'100%'}}>
           <Suspense fallback={<BrandPageLoading />}>
@@ -260,10 +302,98 @@ const structuredData = {
           </Suspense>
         </div>
 
+        {/* Related brands section - dynamic cross-linking for SEO */}
+        {relatedBrands.length > 0 && (
+          <section style={{ padding: '40px 0', background: '#fafafa' }}>
+            <div className="container" style={{ maxWidth: 900, margin: '0 auto', padding: '0 20px' }}>
+              <h2 style={{ textAlign: 'center', fontSize: '1.5rem', fontWeight: 700, color: '#1a1a1a', marginBottom: 24 }}>
+                More {categoryLabel} Receipt Generators
+              </h2>
+              <div className="related-brands-grid">
+                {relatedBrands.map((relBrand) => {
+                  const relName = toLabel(relBrand)
+                  const relSeo = brandSeoData[relBrand]
+                  return (
+                    <Link
+                      key={relBrand}
+                      href={`/brands/${relBrand}`}
+                      className="related-brand-card"
+                      aria-label={`${relName} receipt generator`}
+                    >
+                      <span style={{ fontWeight: 600, color: '#1a1a1a', fontSize: 15 }}>{relName}</span>
+                      {relSeo && (
+                        <span style={{ fontSize: 13, color: '#666', marginTop: 4, lineHeight: 1.4 }}>
+                          {relSeo.shortDescription}
+                        </span>
+                      )}
+                      <span style={{ fontSize: 13, color: '#0074d4', marginTop: 8, fontWeight: 500 }}>
+                        Generate {relName} Receipts →
+                      </span>
+                    </Link>
+                  )
+                })}
+              </div>
+
+              <div style={{ textAlign: 'center', marginTop: 24 }}>
+                <Link
+                  href="/brands"
+                  style={{ color: '#0074d4', fontWeight: 600, fontSize: 15, textDecoration: 'none' }}
+                >
+                  View all 70+ brand receipt generators →
+                </Link>
+              </div>
+            </div>
+          </section>
+        )}
+
         <Footer/>
       </main>
 
       <style>{`
+        .brand-seo-hero {
+          padding: 30px 0 20px 0;
+          text-align: center;
+        }
+
+        .related-brands-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 16px;
+        }
+
+        .related-brand-card {
+          display: flex;
+          flex-direction: column;
+          padding: 20px;
+          background: white;
+          border: 1px solid #e5e7eb;
+          text-decoration: none;
+          transition: all 0.2s ease;
+        }
+
+        .related-brand-card:hover {
+          box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+          transform: translateY(-2px);
+          border-color: #0074d4;
+        }
+
+        .telegram-button {
+          padding: 8px 24px;
+          background-color: #0088cc;
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          text-decoration: none;
+          box-shadow: 0 4px 12px rgba(0, 136, 204, 0.3);
+          transition: all 0.3s ease;
+        }
+
+        .telegram-button:hover {
+          background-color: #006699;
+          transform: translateY(-2px);
+          box-shadow: 0 6px 16px rgba(0, 136, 204, 0.4);
+        }
+
         .brand-hero-section {
           padding: 80px 0 60px;
           background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);

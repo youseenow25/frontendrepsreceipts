@@ -6,7 +6,7 @@ import Counter from "@/components/Counter";
 // Brand Logo Component
 const BrandLogo = ({ brand, size = 20 }: { brand: string; size?: number }) => {
   const [logoError, setLogoError] = React.useState(false);
-  
+
   const getLogoPath = (brandName: string) => {
     // Convert brand name to filename format
     const filename = brandName
@@ -14,17 +14,17 @@ const BrandLogo = ({ brand, size = 20 }: { brand: string; size?: number }) => {
       .replace(/[^a-z0-9]/g, '_')
       .replace(/_+/g, '_')
       .replace(/^_|_$/g, '') + '.png';
-    
+
     return `/brand-logos/${filename}`;
   };
 
   if (logoError) {
     return (
-      <div 
+      <div
         className="brand-logo-fallback"
-        style={{ 
-          width: size, 
-          height: size, 
+        style={{
+          width: size,
+          height: size,
           borderRadius: 4,
           background: '#f0f0f0',
           display: 'flex',
@@ -48,7 +48,7 @@ const BrandLogo = ({ brand, size = 20 }: { brand: string; size?: number }) => {
         width: size,
         height: size,
         objectFit: 'contain',
-        
+
         flexShrink: 0
       }}
       onError={() => setLogoError(true)}
@@ -59,7 +59,7 @@ const BrandLogo = ({ brand, size = 20 }: { brand: string; size?: number }) => {
 export default function Hero() {
   const phrases = [
     "✉️ +70 brands receipts ",
-  
+
   ];
 
    const brands = [
@@ -107,7 +107,7 @@ export default function Hero() {
     "Moncler",
     "Neiman Marcus",
     "Nike",
-   
+
     "Nordstrom",
     "The North Face",
     "Off-White",
@@ -122,7 +122,7 @@ export default function Hero() {
     "Stanley",
     "StockX",
     "Stüssy",
-   
+
     "TaylorMade Golf",
     "Trapstar",
     "UGG",
@@ -141,9 +141,17 @@ export default function Hero() {
   const [deleting, setDeleting] = React.useState(false);
   const [blink, setBlink] = React.useState(true);
   const [isMobile, setIsMobile] = React.useState(false);
+  const [isMounted, setIsMounted] = React.useState(false);
+
+  // Set mounted flag first
+  React.useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // Check if mobile on mount and resize
   React.useEffect(() => {
+    if (!isMounted) return;
+
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
@@ -151,7 +159,7 @@ export default function Hero() {
     checkMobile();
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
-  }, []);
+  }, [isMounted]);
 
   React.useEffect(() => {
     if (subIndex === phrases[index].length + 1 && !deleting) {
@@ -179,12 +187,15 @@ export default function Hero() {
     return () => clearInterval(blinkInterval);
   }, []);
 
+  // Use desktop defaults until mounted to prevent hydration mismatch
+  const mobile = isMounted ? isMobile : false;
+
   return (
     <section className="hero">
       {/* Remove container class from the main div */}
       <div style={{ width: '100%' }}>
-        <h5 style={{ 
-          fontSize: isMobile ? "clamp(2rem, 8vw, 3rem)" : "clamp(3.5rem, 5vw, 5rem)", 
+        <h5 style={{
+          fontSize: mobile ? "clamp(2rem, 8vw, 3rem)" : "clamp(3.5rem, 5vw, 5rem)",
           fontWeight: 500,
           lineHeight: 1.2,
           marginBottom: "1rem",
@@ -194,27 +205,27 @@ export default function Hero() {
           <span style={{ opacity: blink ? 1 : 0 }}>|</span>
         </h5>
 
-      
+
    <div
   style={{
     width: '90%',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    margin: '0 auto' // centers the whole div if it's inside another block
+    margin: '0 auto'
   }}
 >
   <Counter />
 </div>
 
-        
-    
+
+
 
         {/* Scrolling Brand Rows - Full width */}
-        <div style={{ 
-          marginTop: isMobile ? '1%' : '1%', 
+        <div style={{
+          marginTop: mobile ? '1%' : '1%',
           width: '100%',
-          padding: isMobile ? '0 16px' : '0 20px'
+          padding: mobile ? '0 16px' : '0 20px'
         }} className="overflow-hidden space-y-8 mt-20">
           {/* Row 1 (Right → Left) */}
           <div className="w-full overflow-hidden">
@@ -226,15 +237,15 @@ export default function Hero() {
                   style={{
                     background: "#efefef",
                     whiteSpace: "nowrap",
-                    padding: isMobile ? '6px 12px' : '8px 16px',
-                    fontSize: isMobile ? '12px' : '14px',
+                    padding: mobile ? '6px 12px' : '8px 16px',
+                    fontSize: mobile ? '12px' : '14px',
                     borderRadius:5,
-               
+
                     gap: '8px'
                   }}
                 >
-                  <BrandLogo brand={brand} size={isMobile ? 16 : 20} />
-                  <span style={{ 
+                  <BrandLogo brand={brand} size={mobile ? 16 : 20} />
+                  <span style={{
                     fontWeight: 500,
                     color: '#333'
                   }}>
@@ -255,14 +266,14 @@ export default function Hero() {
                   style={{
                     background: "#efefef",
                     whiteSpace: "nowrap",
-                    padding: isMobile ? '6px 12px' : '8px 16px',
-                    fontSize: isMobile ? '12px' : '14px',
-                 
+                    padding: mobile ? '6px 12px' : '8px 16px',
+                    fontSize: mobile ? '12px' : '14px',
+
                     gap: '8px'
                   }}
                 >
-                  <BrandLogo brand={brand} size={isMobile ? 16 : 20} />
-                  <span style={{ 
+                  <BrandLogo brand={brand} size={mobile ? 16 : 20} />
+                  <span style={{
                     fontWeight: 500,
                     color: '#333'
                   }}>
@@ -277,7 +288,7 @@ export default function Hero() {
 
       <style>{`
         .hero {
-          padding: ${isMobile ? '40px 0px 0px' : '20px 0px 0px'}; /* Remove horizontal padding */
+          padding: 20px 0px 0px;
           text-align: center;
           position: relative;
           z-index: 1;
@@ -301,7 +312,7 @@ export default function Hero() {
 
         .btn-primary {
           background: #000;
-          color: "white";
+          color: white;
           border-color: #000;
         }
 
@@ -324,8 +335,10 @@ export default function Hero() {
           width: max-content;
         }
 
-        /* Mobile optimizations */
         @media (max-width: 767px) {
+          .hero {
+            padding: 40px 0px 0px;
+          }
           .animate-marquee-slow, .animate-marquee-reverse-slow {
             animation-duration: 40s;
           }

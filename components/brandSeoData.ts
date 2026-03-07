@@ -1,0 +1,522 @@
+export type BrandCategory = 'luxury' | 'streetwear' | 'sports' | 'marketplace' | 'electronics' | 'beauty' | 'department_store' | 'outdoor' | 'watches'
+
+export type BrandSeoInfo = {
+  category: BrandCategory
+  shortDescription: string
+  longDescription: string
+  popularProducts: string[]
+  tags: string[]
+}
+
+export const categoryLabels: Record<BrandCategory, string> = {
+  luxury: 'Luxury Fashion',
+  streetwear: 'Streetwear',
+  sports: 'Sports & Sneakers',
+  marketplace: 'Marketplaces & Resellers',
+  electronics: 'Electronics & Tech',
+  beauty: 'Beauty & Lifestyle',
+  department_store: 'Department Stores',
+  outdoor: 'Outdoor & Activewear',
+  watches: 'Watches & Jewelry',
+}
+
+export const brandSeoData: Record<string, BrandSeoInfo> = {
+  acne_studios: {
+    category: 'luxury',
+    shortDescription: 'Swedish luxury fashion house known for minimalist design',
+    longDescription: 'Acne Studios is a Stockholm-based luxury fashion house recognized for its minimalist Scandinavian aesthetic. Founded in 1996, the brand offers ready-to-wear clothing, footwear, accessories, and denim. Generate authentic Acne Studios email receipts with accurate formatting, order details, and brand styling.',
+    popularProducts: ['Leather Jackets', 'Scarves', 'Denim', 'Sneakers'],
+    tags: ['swedish fashion', 'minimalist', 'scandinavian design', 'luxury denim'],
+  },
+  adidas: {
+    category: 'sports',
+    shortDescription: 'Global sportswear giant and sneaker icon',
+    longDescription: 'Adidas is one of the world\'s largest sportswear manufacturers, famous for its three-stripe logo and iconic sneaker lines like Yeezy, Ultraboost, and Stan Smith. Generate realistic Adidas purchase receipts with product details, order numbers, and official formatting.',
+    popularProducts: ['Ultraboost', 'Stan Smith', 'Yeezy', 'Superstar', 'NMD'],
+    tags: ['sportswear', 'sneakers', 'athletic wear', 'three stripes'],
+  },
+  amazon: {
+    category: 'marketplace',
+    shortDescription: 'The world\'s largest online marketplace',
+    longDescription: 'Amazon is the leading global e-commerce platform offering millions of products across every category. Generate accurate Amazon order confirmation receipts with proper formatting, shipping details, item breakdowns, and order numbers matching real Amazon emails.',
+    popularProducts: ['Electronics', 'Books', 'Home & Kitchen', 'Fashion'],
+    tags: ['e-commerce', 'online shopping', 'order confirmation', 'prime'],
+  },
+  apple: {
+    category: 'electronics',
+    shortDescription: 'Premium technology and consumer electronics brand',
+    longDescription: 'Apple is a leading technology company known for the iPhone, MacBook, iPad, and Apple Watch. Generate professional Apple Store purchase receipts with accurate product details, pricing, Apple ID information, and the signature minimalist receipt format.',
+    popularProducts: ['iPhone', 'MacBook', 'iPad', 'AirPods', 'Apple Watch'],
+    tags: ['technology', 'electronics', 'apple store', 'iphone receipt'],
+  },
+  arcteryx: {
+    category: 'outdoor',
+    shortDescription: 'Premium outdoor performance apparel from Canada',
+    longDescription: 'Arc\'teryx is a Canadian high-performance outdoor clothing and equipment company based in British Columbia. Known for premium Gore-Tex jackets and technical gear. Generate detailed Arc\'teryx receipts with product specifications, sizing, and order information.',
+    popularProducts: ['Alpha SV Jacket', 'Beta LT', 'Atom Hoody', 'Mantis 26'],
+    tags: ['outdoor gear', 'gore-tex', 'technical apparel', 'canadian brand'],
+  },
+  argos: {
+    category: 'department_store',
+    shortDescription: 'UK\'s leading catalogue and online retailer',
+    longDescription: 'Argos is a major British catalogue retailer operating through stores and online. Offering electronics, toys, furniture, and household goods. Generate Argos purchase confirmation receipts with collection details, order references, and UK formatting.',
+    popularProducts: ['Electronics', 'Toys', 'Furniture', 'Home Appliances'],
+    tags: ['uk retail', 'catalogue', 'online shopping', 'british store'],
+  },
+  balenciaga: {
+    category: 'luxury',
+    shortDescription: 'Avant-garde luxury fashion house from Paris',
+    longDescription: 'Balenciaga is a Spanish luxury fashion house founded by Cristobal Balenciaga and now based in Paris under Kering Group. Famous for oversized silhouettes, Triple S sneakers, and bold designs. Generate authentic Balenciaga receipts with luxury formatting and brand details.',
+    popularProducts: ['Triple S', 'Track Sneakers', 'Speed Trainer', 'Hourglass Bag'],
+    tags: ['haute couture', 'paris fashion', 'designer sneakers', 'kering'],
+  },
+  bape: {
+    category: 'streetwear',
+    shortDescription: 'Iconic Japanese streetwear brand with camo prints',
+    longDescription: 'A Bathing Ape (BAPE) is a Japanese streetwear brand founded by Nigo in 1993. Known for its distinctive camo patterns, shark hoodies, and ape head logo. Generate BAPE purchase receipts with authentic Japanese streetwear receipt formatting.',
+    popularProducts: ['Shark Hoodie', 'BAPE STA', 'Camo Tee', 'Baby Milo'],
+    tags: ['japanese streetwear', 'camo', 'hypebeast', 'limited edition'],
+  },
+  best_secret: {
+    category: 'marketplace',
+    shortDescription: 'Members-only luxury fashion outlet platform',
+    longDescription: 'BestSecret is a members-only online designer outlet offering up to 80% off luxury brands. Based in Germany, it features thousands of premium fashion brands. Generate BestSecret order confirmation receipts with discount details and member pricing.',
+    popularProducts: ['Designer Clothing', 'Premium Shoes', 'Accessories', 'Bags'],
+    tags: ['outlet', 'designer discount', 'members only', 'german platform'],
+  },
+  boots: {
+    category: 'beauty',
+    shortDescription: 'UK\'s leading pharmacy-led health and beauty retailer',
+    longDescription: 'Boots is a British health and beauty retailer and pharmacy chain with over 2,000 stores across the UK. Generate accurate Boots purchase receipts with Advantage Card points, product details, and UK pharmacy receipt formatting.',
+    popularProducts: ['No7 Skincare', 'Fragrances', 'Vitamins', 'Beauty Products'],
+    tags: ['pharmacy', 'beauty', 'health', 'uk retail', 'boots advantage card'],
+  },
+  breuninger: {
+    category: 'department_store',
+    shortDescription: 'Premium German luxury department store',
+    longDescription: 'Breuninger is a prestigious German department store chain specializing in luxury fashion, beauty, and lifestyle products. Founded in 1881, it offers premium European and international designer brands. Generate Breuninger receipts with European formatting and luxury details.',
+    popularProducts: ['Designer Fashion', 'Premium Beauty', 'Luxury Accessories'],
+    tags: ['german luxury', 'department store', 'european fashion', 'premium retail'],
+  },
+  broken_planet: {
+    category: 'streetwear',
+    shortDescription: 'UK-based sustainable streetwear brand',
+    longDescription: 'Broken Planet Market is a London-based sustainable streetwear brand known for its eco-friendly tracksuits, hoodies, and limited drops. Generate Broken Planet receipts with drop details, sizing information, and authentic UK streetwear formatting.',
+    popularProducts: ['Tracksuits', 'Hoodies', 'T-Shirts', 'Shorts'],
+    tags: ['sustainable fashion', 'uk streetwear', 'limited drops', 'eco-friendly'],
+  },
+  bulgari: {
+    category: 'watches',
+    shortDescription: 'Italian luxury brand famous for jewelry and watches',
+    longDescription: 'BVLGARI is an Italian luxury brand renowned for its exquisite jewelry, watches, fragrances, and leather goods. Part of the LVMH group. Generate elegant Bulgari purchase receipts with luxury product details, serial numbers, and premium formatting.',
+    popularProducts: ['Serpenti Collection', 'B.zero1', 'Octo Watch', 'Divas\' Dream'],
+    tags: ['italian luxury', 'jewelry', 'watches', 'lvmh', 'fine jewelry'],
+  },
+  burberry: {
+    category: 'luxury',
+    shortDescription: 'British luxury fashion house with iconic check pattern',
+    longDescription: 'Burberry is a British luxury fashion house known for its iconic check pattern, trench coats, and heritage British style. Founded in 1856. Generate authentic Burberry receipts with product details, luxury formatting, and the signature Burberry styling.',
+    popularProducts: ['Trench Coat', 'Check Scarves', 'TB Bag', 'Sneakers'],
+    tags: ['british luxury', 'trench coat', 'check pattern', 'heritage fashion'],
+  },
+  canada_goose: {
+    category: 'outdoor',
+    shortDescription: 'Premium Canadian outerwear known for extreme cold protection',
+    longDescription: 'Canada Goose is a Canadian luxury outerwear brand famous for its premium down-filled parkas and jackets designed for extreme cold. Generate Canada Goose purchase receipts with authenticity details, product codes, and sizing specifications.',
+    popularProducts: ['Expedition Parka', 'Chilliwack Bomber', 'Wyndham Parka', 'Freestyle Vest'],
+    tags: ['canadian outerwear', 'down jackets', 'winter clothing', 'premium parkas'],
+  },
+  cartier: {
+    category: 'watches',
+    shortDescription: 'French luxury jewelry and watch maison since 1847',
+    longDescription: 'Cartier is a French luxury goods conglomerate renowned as one of the world\'s most prestigious jewelers and watchmakers. Known as "The Jeweller of Kings." Generate sophisticated Cartier receipts with serial numbers, product details, and luxury maison formatting.',
+    popularProducts: ['Love Bracelet', 'Tank Watch', 'Juste un Clou', 'Santos Watch'],
+    tags: ['french luxury', 'fine jewelry', 'luxury watches', 'maison cartier'],
+  },
+  cettire: {
+    category: 'marketplace',
+    shortDescription: 'Australian online luxury fashion retailer',
+    longDescription: 'Cettire is an Australian-based online luxury fashion retailer offering discounted designer products from top fashion houses worldwide. Generate Cettire order receipts with international shipping details, brand information, and discount pricing.',
+    popularProducts: ['Designer Shoes', 'Luxury Bags', 'Premium Clothing'],
+    tags: ['australian retail', 'luxury discount', 'online designer', 'global shipping'],
+  },
+  chanel: {
+    category: 'luxury',
+    shortDescription: 'Legendary French fashion house and luxury icon',
+    longDescription: 'CHANEL is one of the world\'s most iconic luxury brands, founded by Coco Chanel in Paris. Known for the Classic Flap bag, N°5 perfume, and timeless tweed suits. Generate authentic Chanel boutique receipts with luxury product details and the signature CHANEL formatting.',
+    popularProducts: ['Classic Flap Bag', 'N°5 Perfume', 'Boy Bag', 'J12 Watch'],
+    tags: ['paris fashion', 'haute couture', 'iconic luxury', 'coco chanel'],
+  },
+  chrono24: {
+    category: 'watches',
+    shortDescription: 'World\'s leading online marketplace for luxury watches',
+    longDescription: 'Chrono24 is the world\'s largest online marketplace for buying and selling luxury watches from top brands like Rolex, Omega, and Patek Philippe. Generate Chrono24 purchase receipts with watch details, seller information, and marketplace formatting.',
+    popularProducts: ['Rolex', 'Omega', 'Patek Philippe', 'Audemars Piguet'],
+    tags: ['luxury watches', 'watch marketplace', 'rolex', 'pre-owned watches'],
+  },
+  corteiz: {
+    category: 'streetwear',
+    shortDescription: 'London-based underground streetwear brand',
+    longDescription: 'Corteiz (CRTZ) is a London streetwear brand known for its exclusive drops, guerrilla marketing, and the Alcatraz logo. One of the most hyped UK street brands. Generate Corteiz purchase receipts with drop information and authentic UK streetwear formatting.',
+    popularProducts: ['Alcatraz Hoodie', 'Cargo Pants', 'T-Shirts', 'Tracksuits'],
+    tags: ['london streetwear', 'underground fashion', 'limited drops', 'uk hype'],
+  },
+  culture_kings: {
+    category: 'streetwear',
+    shortDescription: 'Australian streetwear and sneaker retailer',
+    longDescription: 'Culture Kings is Australia\'s leading streetwear retailer offering premium street fashion, sneakers, and accessories from global brands. Generate Culture Kings order receipts with Australian formatting, product details, and order tracking.',
+    popularProducts: ['Sneakers', 'Streetwear', 'Accessories', 'Caps'],
+    tags: ['australian streetwear', 'sneaker store', 'street fashion', 'culture'],
+  },
+  debijenkorf: {
+    category: 'department_store',
+    shortDescription: 'The Netherlands\' premier luxury department store',
+    longDescription: 'De Bijenkorf is the leading Dutch luxury department store chain offering premium fashion, beauty, and lifestyle products. Founded in 1870 in Amsterdam. Generate De Bijenkorf receipts with European formatting, Dutch retail details, and luxury product information.',
+    popularProducts: ['Designer Fashion', 'Premium Beauty', 'Home & Living'],
+    tags: ['dutch luxury', 'amsterdam store', 'european department store', 'netherlands retail'],
+  },
+  denim_tears: {
+    category: 'streetwear',
+    shortDescription: 'Cultural streetwear brand celebrating Black heritage',
+    longDescription: 'Denim Tears is a culturally significant streetwear brand founded by Tremaine Emory, known for its cotton wreath designs and collaborations with Levi\'s. Generate Denim Tears purchase receipts with product details and limited edition information.',
+    popularProducts: ['Cotton Wreath Jeans', 'Hoodies', 'T-Shirts', 'Levi\'s Collabs'],
+    tags: ['cultural fashion', 'black heritage', 'limited edition', 'designer streetwear'],
+  },
+  dior: {
+    category: 'luxury',
+    shortDescription: 'French luxury fashion and beauty empire',
+    longDescription: 'Christian Dior is a legendary French luxury fashion house known for haute couture, ready-to-wear, leather goods, and fragrances. Part of LVMH. Generate authentic Dior boutique receipts with luxury formatting, product codes, and signature Dior styling.',
+    popularProducts: ['Saddle Bag', 'Book Tote', 'J\'Adior Heels', 'Lady Dior Bag'],
+    tags: ['french luxury', 'haute couture', 'lvmh', 'paris fashion house'],
+  },
+  dyson: {
+    category: 'electronics',
+    shortDescription: 'British technology company with innovative home products',
+    longDescription: 'Dyson is a British technology company famous for its innovative vacuum cleaners, hair dryers, air purifiers, and fans. Generate accurate Dyson purchase receipts with product serial numbers, warranty details, and official Dyson formatting.',
+    popularProducts: ['Supersonic Hair Dryer', 'Airwrap', 'V15 Vacuum', 'Pure Cool'],
+    tags: ['british technology', 'home appliances', 'innovation', 'hair care'],
+  },
+  ebay: {
+    category: 'marketplace',
+    shortDescription: 'Global online auction and shopping marketplace',
+    longDescription: 'eBay is one of the world\'s largest online marketplaces connecting buyers and sellers worldwide. Features auctions and fixed-price listings across all categories. Generate eBay purchase receipts with seller details, item specifics, and eBay order formatting.',
+    popularProducts: ['Collectibles', 'Electronics', 'Fashion', 'Sneakers'],
+    tags: ['online marketplace', 'auction', 'resale', 'global shopping'],
+  },
+  end: {
+    category: 'marketplace',
+    shortDescription: 'Premium UK fashion and sneaker retailer',
+    longDescription: 'END. (End Clothing) is a leading UK-based online fashion retailer specializing in premium streetwear, sneakers, and designer fashion. Based in Newcastle. Generate END. purchase receipts with UK shipping details, brand information, and order numbers.',
+    popularProducts: ['Sneakers', 'Designer Clothing', 'Accessories', 'Outerwear'],
+    tags: ['uk fashion', 'premium streetwear', 'sneaker retailer', 'newcastle'],
+  },
+  farfetch: {
+    category: 'marketplace',
+    shortDescription: 'Global luxury fashion platform connecting boutiques worldwide',
+    longDescription: 'Farfetch is a leading global platform for the luxury fashion industry, connecting customers with boutiques and brands from over 50 countries. Generate Farfetch order receipts with boutique details, international shipping, and luxury marketplace formatting.',
+    popularProducts: ['Designer Clothing', 'Luxury Shoes', 'Premium Bags', 'Accessories'],
+    tags: ['luxury marketplace', 'global fashion', 'designer boutiques', 'international luxury'],
+  },
+  flannels: {
+    category: 'department_store',
+    shortDescription: 'UK luxury fashion retailer owned by Frasers Group',
+    longDescription: 'Flannels is a British luxury fashion retailer offering premium designer brands across clothing, footwear, and accessories. Part of the Frasers Group. Generate Flannels purchase receipts with UK luxury retail formatting and product details.',
+    popularProducts: ['Designer Sneakers', 'Luxury Clothing', 'Premium Accessories'],
+    tags: ['uk luxury retail', 'designer fashion', 'frasers group', 'british stores'],
+  },
+  flight_club: {
+    category: 'marketplace',
+    shortDescription: 'Premier sneaker marketplace for rare and exclusive shoes',
+    longDescription: 'Flight Club is the world\'s premier sneaker marketplace, specializing in rare, limited edition, and exclusive sneakers. Founded in New York. Generate Flight Club receipts with sneaker details, condition information, and authentication verification.',
+    popularProducts: ['Air Jordan', 'Yeezy', 'Nike Dunk', 'New Balance'],
+    tags: ['sneaker marketplace', 'rare sneakers', 'authenticated shoes', 'new york'],
+  },
+  frasers: {
+    category: 'department_store',
+    shortDescription: 'British premium department store group',
+    longDescription: 'Frasers is a British premium department store chain offering luxury and contemporary fashion brands. Part of the Frasers Group. Generate Frasers purchase receipts with UK department store formatting and luxury product details.',
+    popularProducts: ['Designer Fashion', 'Premium Footwear', 'Luxury Accessories'],
+    tags: ['british department store', 'premium fashion', 'uk retail', 'frasers group'],
+  },
+  gallery_dept: {
+    category: 'streetwear',
+    shortDescription: 'Los Angeles art-meets-fashion streetwear label',
+    longDescription: 'Gallery Dept. is a Los Angeles-based fashion label by Josue Thomas that blends art, vintage reworking, and streetwear. Known for hand-painted and distressed pieces. Generate Gallery Dept. receipts with product details, limited edition info, and LA streetwear formatting.',
+    popularProducts: ['Painted Jeans', 'Logo Tees', 'Hoodies', 'Trucker Hats'],
+    tags: ['la streetwear', 'art fashion', 'hand-painted', 'vintage rework'],
+  },
+  goat: {
+    category: 'marketplace',
+    shortDescription: 'Leading global platform for authenticated sneakers',
+    longDescription: 'GOAT is the world\'s largest marketplace for authentic sneakers, offering new, used, and vintage kicks with professional authentication. Generate GOAT purchase receipts with authentication details, condition grades, and sneaker marketplace formatting.',
+    popularProducts: ['Air Jordan', 'Nike Dunk', 'Yeezy', 'New Balance'],
+    tags: ['sneaker marketplace', 'authenticated sneakers', 'goat verified', 'sneaker resale'],
+  },
+  gucci: {
+    category: 'luxury',
+    shortDescription: 'Italian luxury fashion house and global style icon',
+    longDescription: 'Gucci is an Italian luxury fashion house founded in Florence in 1921. Known for the GG logo, Horsebit loafer, and bold creative designs. Part of the Kering Group. Generate authentic Gucci boutique receipts with luxury product details, serial numbers, and premium formatting.',
+    popularProducts: ['GG Marmont Bag', 'Ace Sneakers', 'Horsebit Loafer', 'Dionysus Bag'],
+    tags: ['italian luxury', 'florence fashion', 'kering group', 'gg logo'],
+  },
+  harrods: {
+    category: 'department_store',
+    shortDescription: 'London\'s world-famous luxury department store',
+    longDescription: 'Harrods is the world-renowned luxury department store located in Knightsbridge, London. Offering the finest in luxury fashion, food, and lifestyle since 1849. Generate Harrods purchase receipts with prestigious London retail formatting and luxury details.',
+    popularProducts: ['Luxury Fashion', 'Fine Food', 'Premium Beauty', 'Designer Goods'],
+    tags: ['london luxury', 'knightsbridge', 'iconic store', 'british heritage'],
+  },
+  hermes: {
+    category: 'luxury',
+    shortDescription: 'French luxury goods manufacturer known for Birkin bags',
+    longDescription: 'Hermes is a French luxury goods manufacturer established in 1837, famous for the Birkin bag, Kelly bag, and silk scarves. One of the most exclusive luxury brands in the world. Generate authentic Hermes receipts with product references, leather details, and maison formatting.',
+    popularProducts: ['Birkin Bag', 'Kelly Bag', 'Silk Scarves', 'Oran Sandals'],
+    tags: ['french luxury', 'birkin', 'leather goods', 'exclusive fashion'],
+  },
+  jd_sports: {
+    category: 'sports',
+    shortDescription: 'UK\'s leading sports fashion retailer',
+    longDescription: 'JD Sports is the UK\'s leading sports fashion retailer offering sneakers, sportswear, and street fashion from top brands like Nike, Adidas, and Jordan. Generate JD Sports receipts with UK retail formatting, product details, and order information.',
+    popularProducts: ['Nike Air Max', 'Adidas Originals', 'Jordan', 'North Face'],
+    tags: ['uk sports retail', 'sneakers', 'sportswear', 'street fashion'],
+  },
+  john_lewis: {
+    category: 'department_store',
+    shortDescription: 'Trusted British department store since 1864',
+    longDescription: 'John Lewis is a beloved British department store chain known for quality products, excellent service, and the "Never Knowingly Undersold" promise. Generate John Lewis purchase receipts with UK formatting, warranty details, and trusted retail styling.',
+    popularProducts: ['Electronics', 'Home & Garden', 'Fashion', 'Beauty'],
+    tags: ['british department store', 'trusted retailer', 'john lewis partnership', 'uk shopping'],
+  },
+  loro_piana: {
+    category: 'luxury',
+    shortDescription: 'Italian luxury brand specializing in finest cashmere and wools',
+    longDescription: 'Loro Piana is an Italian luxury brand owned by LVMH, renowned for the world\'s finest cashmere, vicuna, and baby cashmere products. Generate Loro Piana receipts with premium product details, fabric specifications, and luxury Italian formatting.',
+    popularProducts: ['Cashmere Sweaters', 'Summer Walk Loafer', 'Scarves', 'Jackets'],
+    tags: ['italian luxury', 'cashmere', 'lvmh', 'finest fabrics'],
+  },
+  louis_vuitton: {
+    category: 'luxury',
+    shortDescription: 'French luxury fashion house with iconic monogram',
+    longDescription: 'Louis Vuitton is the world\'s most valuable luxury brand, famous for its monogram canvas, trunks, and leather goods. Founded in 1854 in Paris, part of LVMH. Generate authentic Louis Vuitton receipts with product codes, date stamps, and luxury maison formatting.',
+    popularProducts: ['Neverfull', 'Speedy', 'Keepall', 'Alma Bag', 'LV Trainers'],
+    tags: ['french luxury', 'monogram', 'lvmh', 'paris fashion', 'lv'],
+  },
+  maison_margiela: {
+    category: 'luxury',
+    shortDescription: 'Avant-garde French fashion house known for deconstructed design',
+    longDescription: 'Maison Margiela is a French luxury fashion house founded by Belgian designer Martin Margiela, now led by John Galliano. Known for the Tabi boot and deconstructed aesthetics. Generate Maison Margiela receipts with product line details and avant-garde luxury formatting.',
+    popularProducts: ['Tabi Boots', 'Replica Sneakers', 'Glam Slam Bag', '5AC Bag'],
+    tags: ['avant-garde', 'deconstructed fashion', 'tabi', 'john galliano'],
+  },
+  moncler: {
+    category: 'luxury',
+    shortDescription: 'French-Italian luxury brand famous for premium down jackets',
+    longDescription: 'Moncler is a luxury outerwear brand known for its premium down jackets and high-end fashion collaborations. Founded in the French Alps. Generate Moncler receipts with product authenticity codes, sizing details, and luxury outerwear formatting.',
+    popularProducts: ['Maya Jacket', 'Montcla', 'Courcillon', 'Genius Projects'],
+    tags: ['luxury outerwear', 'down jackets', 'french alps', 'premium fashion'],
+  },
+  neiman_marcus: {
+    category: 'department_store',
+    shortDescription: 'American luxury department store chain',
+    longDescription: 'Neiman Marcus is a prestigious American luxury department store chain offering the finest in designer fashion, beauty, and home goods. Generate Neiman Marcus purchase receipts with US luxury retail formatting and InCircle rewards details.',
+    popularProducts: ['Designer Fashion', 'Fine Jewelry', 'Premium Beauty', 'Shoes'],
+    tags: ['american luxury', 'department store', 'designer retail', 'us fashion'],
+  },
+  nike: {
+    category: 'sports',
+    shortDescription: 'World\'s largest athletic brand and sneaker pioneer',
+    longDescription: 'Nike is the world\'s largest athletic footwear and apparel brand, home to iconic sneakers like Air Jordan, Air Max, and Dunk. Generate accurate Nike.com order receipts with product details, Nike Member information, and official receipt formatting.',
+    popularProducts: ['Air Jordan 1', 'Air Max 90', 'Dunk Low', 'Air Force 1'],
+    tags: ['athletic footwear', 'sneakers', 'just do it', 'nike member'],
+  },
+  nordstrom: {
+    category: 'department_store',
+    shortDescription: 'Leading American luxury department store',
+    longDescription: 'Nordstrom is a leading American luxury department store offering designer fashion, shoes, beauty, and accessories with exceptional customer service. Generate Nordstrom purchase receipts with US retail formatting, Nordy Club points, and order details.',
+    popularProducts: ['Designer Shoes', 'Fashion', 'Beauty', 'Accessories'],
+    tags: ['american department store', 'luxury retail', 'nordstrom rack', 'nordy club'],
+  },
+  north_face: {
+    category: 'outdoor',
+    shortDescription: 'Leading outdoor and adventure apparel brand',
+    longDescription: 'The North Face is a premier outdoor recreation brand offering high-performance clothing, footwear, and equipment for exploration and adventure. Generate The North Face receipts with product specifications, warranty details, and outdoor retail formatting.',
+    popularProducts: ['Nuptse Jacket', 'Puffer Vest', '1996 Retro', 'Thermoball'],
+    tags: ['outdoor brand', 'adventure gear', 'puffer jackets', 'exploration'],
+  },
+  off_white: {
+    category: 'streetwear',
+    shortDescription: 'Luxury streetwear brand founded by Virgil Abloh',
+    longDescription: 'Off-White is a luxury streetwear label founded by the late Virgil Abloh, known for its signature diagonal stripes, zip-tie tags, and quotation mark branding. Part of LVMH. Generate Off-White receipts with product details and luxury streetwear formatting.',
+    popularProducts: ['Industrial Belt', 'Out of Office', 'Arrow Tee', 'Vulcanized Sneakers'],
+    tags: ['luxury streetwear', 'virgil abloh', 'diagonal stripes', 'lvmh'],
+  },
+  pacsun: {
+    category: 'streetwear',
+    shortDescription: 'American surf and skate inspired fashion retailer',
+    longDescription: 'PacSun (Pacific Sunwear) is an American retail clothing brand rooted in California surf, skate, and youth culture. Generate PacSun purchase receipts with US casual fashion formatting, product details, and order information.',
+    popularProducts: ['Jeans', 'Graphic Tees', 'Hoodies', 'Swimwear'],
+    tags: ['california fashion', 'surf culture', 'skate style', 'youth fashion'],
+  },
+  pop_mort: {
+    category: 'streetwear',
+    shortDescription: 'Emerging streetwear brand with unique designs',
+    longDescription: 'Pop Mort is a rising streetwear brand known for its unique graphic designs and limited edition drops. Generate Pop Mort purchase receipts with product details and streetwear brand formatting.',
+    popularProducts: ['Graphic Tees', 'Hoodies', 'Limited Drops'],
+    tags: ['emerging streetwear', 'graphic design', 'limited edition', 'new brand'],
+  },
+  prada: {
+    category: 'luxury',
+    shortDescription: 'Italian luxury fashion house synonymous with sophistication',
+    longDescription: 'Prada is an iconic Italian luxury fashion house founded in Milan in 1913, known for its minimalist yet innovative designs in fashion, leather goods, and fragrances. Generate authentic Prada receipts with product codes, luxury formatting, and Italian fashion house styling.',
+    popularProducts: ['Re-Nylon Bag', 'Galleria Bag', 'Monolith Boots', 'Cleo Bag'],
+    tags: ['italian luxury', 'milan fashion', 'prada group', 'minimalist luxury'],
+  },
+  saint_laurent: {
+    category: 'luxury',
+    shortDescription: 'French luxury fashion house with rock \'n\' roll edge',
+    longDescription: 'Saint Laurent (YSL) is a French luxury fashion house known for its sleek, rock-inspired aesthetic. Founded by Yves Saint Laurent in 1961. Part of Kering. Generate authentic Saint Laurent receipts with product details and luxury Parisian formatting.',
+    popularProducts: ['Loulou Bag', 'Wyatt Boots', 'Kate Bag', 'SL/61 Sneakers'],
+    tags: ['french luxury', 'ysl', 'rock fashion', 'kering group'],
+  },
+  sephora: {
+    category: 'beauty',
+    shortDescription: 'World\'s leading prestige beauty retailer',
+    longDescription: 'Sephora is the world\'s leading specialty beauty retailer, offering a vast selection of skincare, makeup, fragrances, and haircare products. Part of LVMH. Generate Sephora purchase receipts with Beauty Insider points, product details, and beauty retail formatting.',
+    popularProducts: ['Skincare', 'Makeup', 'Fragrances', 'Sephora Collection'],
+    tags: ['beauty retail', 'prestige beauty', 'lvmh', 'beauty insider'],
+  },
+  sp5der: {
+    category: 'streetwear',
+    shortDescription: 'Young Thug\'s popular streetwear fashion label',
+    longDescription: 'Sp5der is a streetwear brand founded by rapper Young Thug, known for bold spider web graphics, vibrant colors, and hip-hop culture influence. Generate Sp5der purchase receipts with product details and hip-hop streetwear formatting.',
+    popularProducts: ['Web Hoodie', 'Sweatpants', 'Graphic Tees', 'Shorts'],
+    tags: ['hip-hop fashion', 'young thug', 'spider web', 'rap streetwear'],
+  },
+  ssense: {
+    category: 'marketplace',
+    shortDescription: 'Canadian luxury and streetwear e-commerce platform',
+    longDescription: 'SSENSE is a Montreal-based luxury and streetwear e-commerce platform offering a curated mix of high fashion and emerging designers. Generate SSENSE order receipts with Canadian formatting, designer details, and luxury e-commerce styling.',
+    popularProducts: ['Designer Fashion', 'Luxury Sneakers', 'Emerging Designers'],
+    tags: ['canadian luxury', 'curated fashion', 'montreal', 'luxury e-commerce'],
+  },
+  stanley: {
+    category: 'outdoor',
+    shortDescription: 'Iconic brand known for insulated drinkware and gear',
+    longDescription: 'Stanley is a legendary brand known for its insulated bottles, tumblers, and outdoor gear. The Stanley Quencher became a viral sensation. Generate Stanley purchase receipts with product details, color specifications, and outdoor brand formatting.',
+    popularProducts: ['Quencher H2.0', 'Classic Bottle', 'Adventure Quencher', 'IceFlow'],
+    tags: ['drinkware', 'tumblers', 'insulated bottles', 'viral product'],
+  },
+  stockx: {
+    category: 'marketplace',
+    shortDescription: 'Global marketplace for authenticated sneakers and streetwear',
+    longDescription: 'StockX is the world\'s first stock market of things, operating as a live marketplace for buying and selling authenticated sneakers, streetwear, electronics, and collectibles. Generate StockX receipts with authentication details, bid/ask prices, and marketplace verification formatting.',
+    popularProducts: ['Air Jordan', 'Yeezy', 'Nike Dunk', 'Supreme'],
+    tags: ['authentication', 'sneaker marketplace', 'stock market of things', 'verified'],
+  },
+  stussy: {
+    category: 'streetwear',
+    shortDescription: 'Pioneering California streetwear brand since 1980',
+    longDescription: 'Stussy is one of the original streetwear brands, founded by Shawn Stussy in 1980 in Laguna Beach, California. Known for its signature script logo and surf-skate roots. Generate Stussy purchase receipts with streetwear formatting and product details.',
+    popularProducts: ['Logo Hoodie', 'Bucket Hat', 'Graphic Tees', 'Shorts'],
+    tags: ['og streetwear', 'california surf', 'skate culture', 'script logo'],
+  },
+  supreme: {
+    category: 'streetwear',
+    shortDescription: 'New York\'s most iconic skateboarding and streetwear brand',
+    longDescription: 'Supreme is the world\'s most iconic streetwear brand, founded in 1994 in New York\'s SoHo. Known for its box logo, weekly drops, and massive cultural influence. Generate Supreme purchase receipts with drop details, product information, and iconic streetwear formatting.',
+    popularProducts: ['Box Logo Hoodie', 'Tees', 'Accessories', 'Collaborations'],
+    tags: ['nyc streetwear', 'box logo', 'skate brand', 'hype culture'],
+  },
+  taylor_made_golf: {
+    category: 'sports',
+    shortDescription: 'Leading golf equipment and performance brand',
+    longDescription: 'TaylorMade Golf is a leading manufacturer of golf clubs, balls, and accessories, used by top professional golfers worldwide. Generate TaylorMade purchase receipts with club specifications, custom fitting details, and golf retail formatting.',
+    popularProducts: ['Stealth Driver', 'Spider Putter', 'TP5 Golf Balls', 'Iron Sets'],
+    tags: ['golf equipment', 'golf clubs', 'professional golf', 'sports equipment'],
+  },
+  trapstar: {
+    category: 'streetwear',
+    shortDescription: 'London streetwear brand with global influence',
+    longDescription: 'Trapstar is a London-born streetwear brand that has grown into a global phenomenon, known for bold graphics, puffer jackets, and collaborations with PUMA. Generate Trapstar purchase receipts with UK streetwear formatting and product details.',
+    popularProducts: ['Irongate Puffer', 'Shooters Tracksuit', 'Tees', 'Hyperdrive'],
+    tags: ['london streetwear', 'puffer jackets', 'uk fashion', 'global streetwear'],
+  },
+  ugg: {
+    category: 'outdoor',
+    shortDescription: 'Iconic Australian-American footwear brand',
+    longDescription: 'UGG is a globally recognized footwear brand famous for its sheepskin boots, slippers, and casual comfort wear. Originally from Australia, now based in California. Generate UGG purchase receipts with product sizing, comfort technology details, and brand formatting.',
+    popularProducts: ['Classic Mini Boot', 'Tasman Slipper', 'Ultra Mini', 'Neumel'],
+    tags: ['sheepskin boots', 'comfort footwear', 'australian brand', 'cozy fashion'],
+  },
+  vinted: {
+    category: 'marketplace',
+    shortDescription: 'Europe\'s largest second-hand fashion marketplace',
+    longDescription: 'Vinted is Europe\'s largest online marketplace for second-hand fashion, allowing users to buy and sell pre-owned clothing, shoes, and accessories. Generate Vinted purchase receipts with seller details, item condition, and European marketplace formatting.',
+    popularProducts: ['Second-Hand Clothing', 'Vintage Fashion', 'Pre-Owned Shoes'],
+    tags: ['second-hand fashion', 'sustainable shopping', 'european marketplace', 'resale'],
+  },
+  vivienne_westwood: {
+    category: 'luxury',
+    shortDescription: 'British punk-inspired luxury fashion brand',
+    longDescription: 'Vivienne Westwood is a British luxury fashion brand founded by Dame Vivienne Westwood, the mother of punk fashion. Known for the Orb logo and rebellious designs. Generate Vivienne Westwood receipts with product details and British luxury formatting.',
+    popularProducts: ['Orb Necklace', 'Derby Shoes', 'Bags', 'Pearl Jewelry'],
+    tags: ['british punk', 'orb logo', 'rebellious fashion', 'dame vivienne'],
+  },
+  xerjoff: {
+    category: 'beauty',
+    shortDescription: 'Italian niche luxury perfume house',
+    longDescription: 'Xerjoff is an Italian niche perfume house creating ultra-luxury fragrances with rare ingredients and exquisite bottles. Based in Turin. Generate Xerjoff purchase receipts with fragrance details, bottle specifications, and luxury niche perfume formatting.',
+    popularProducts: ['Naxos', 'Erba Pura', 'Alexandria II', '40 Knots'],
+    tags: ['niche perfume', 'italian fragrance', 'luxury scents', 'rare ingredients'],
+  },
+  yeezy_gap: {
+    category: 'streetwear',
+    shortDescription: 'Kanye West\'s collaboration with Gap',
+    longDescription: 'Yeezy Gap was the highly anticipated collaboration between Kanye West\'s Yeezy brand and American retailer Gap, featuring minimalist streetwear at accessible prices. Generate Yeezy Gap purchase receipts with product details and collaboration branding.',
+    popularProducts: ['Round Jacket', 'Hoodie', 'Dove Tee', 'Logo Fleece'],
+    tags: ['kanye west', 'gap collaboration', 'minimalist streetwear', 'yeezy'],
+  },
+  zalando: {
+    category: 'marketplace',
+    shortDescription: 'Europe\'s leading online fashion and lifestyle platform',
+    longDescription: 'Zalando is Europe\'s largest online fashion and lifestyle platform, operating in 25 markets across Europe. Offers a wide range of brands from high street to designer. Generate Zalando order receipts with European formatting, returns information, and multi-brand details.',
+    popularProducts: ['Fashion', 'Shoes', 'Sports', 'Designer Collections'],
+    tags: ['european fashion', 'online platform', 'multi-brand', 'german e-commerce'],
+  },
+  nike_snkrs: {
+    category: 'sports',
+    shortDescription: 'Nike\'s exclusive sneaker release app',
+    longDescription: 'Nike SNKRS is Nike\'s dedicated app for exclusive sneaker releases, launches, and draws. The go-to platform for limited edition drops. Generate Nike SNKRS purchase confirmation receipts with launch details, draw results, and exclusive release formatting.',
+    popularProducts: ['Air Jordan Releases', 'Dunk Drops', 'Exclusive Collabs'],
+    tags: ['sneaker drops', 'exclusive releases', 'nike draws', 'limited edition'],
+  },
+}
+
+// Get brands by category
+export function getBrandsByCategory(category: BrandCategory): string[] {
+  return Object.entries(brandSeoData)
+    .filter(([_, data]) => data.category === category)
+    .map(([slug]) => slug)
+}
+
+// Get related brands (same category, excluding self)
+export function getRelatedBrands(brandSlug: string, limit = 6): string[] {
+  const brand = brandSeoData[brandSlug]
+  if (!brand) return []
+  return Object.entries(brandSeoData)
+    .filter(([slug, data]) => data.category === brand.category && slug !== brandSlug)
+    .map(([slug]) => slug)
+    .slice(0, limit)
+}
+
+// Get all categories with their brands
+export function getAllCategories(): { category: BrandCategory; label: string; brands: string[] }[] {
+  const categories = Object.keys(categoryLabels) as BrandCategory[]
+  return categories
+    .map(cat => ({
+      category: cat,
+      label: categoryLabels[cat],
+      brands: getBrandsByCategory(cat),
+    }))
+    .filter(c => c.brands.length > 0)
+}

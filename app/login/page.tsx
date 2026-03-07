@@ -19,7 +19,7 @@ export default function LoginPage() {
     setIsLoading(true);
 
     try {
-      const res = await fetch("https://api.repsreceipts.com/api/auth/login", {
+      const res = await fetch("https://api.repsreceipt.com/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -66,7 +66,7 @@ export default function LoginPage() {
           Log in
         </h2>
         <p className="mt-2 text-center text-sm text-gray-600">
-          You don' have an account?{" "}
+          Don't have an account?{" "}
           <button
             onClick={() => router.push("/register")}
             className="font-medium text-purple-600 hover:text-blue-500 transition-colors"

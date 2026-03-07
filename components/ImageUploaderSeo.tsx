@@ -819,7 +819,7 @@ function ImageUploaderContent({ preSelectedBrand, isBrandPage = false }: ImageUp
         })
       });
 
-      const res = await fetch("https://api.repsreceipts.com/api/receipt/generate", {
+      const res = await fetch("https://api.repsreceipt.com/api/receipt/generate", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,

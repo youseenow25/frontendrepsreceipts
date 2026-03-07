@@ -1,7 +1,14 @@
 import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
 import './globals.css'
 import { Analytics } from "@vercel/analytics/react"
 import Script from 'next/script'
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+})
 
 export const metadata: Metadata = {
   title: 'Generate StockX, Farfetch, +70 brands receipts',
@@ -106,7 +113,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         {/* ✅ UPDATED GOOGLE TAG (GTAG.JS) */}
         <Script
@@ -205,18 +212,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "SoftwareApplication",
-              "name": "RepsReceipts receipt generator",
+              "name": "RepsReceipts Receipt Generator",
               "applicationCategory": "BusinessApplication",
               "operatingSystem": "Web Browser",
-              "permissions": "InternetConnection",
-              "description": "SaaS platform for generating authentic receipts for 100+ luxury and streetwear brands",
+              "description": "SaaS platform for generating authentic receipts for 70+ luxury and streetwear brands including StockX, Nike, Gucci, Louis Vuitton and more.",
               "url": "https://www.repsreceipts.com",
               "image": "https://www.repsreceipts.com/og-image.jpg",
               "offers": {
-                "@type": "Offer",
-                "price": "0",
+                "@type": "AggregateOffer",
+                "lowPrice": "4.99",
+                "highPrice": "29.99",
                 "priceCurrency": "USD",
-                "priceValidUntil": "2025-12-31"
+                "offerCount": "4",
+                "availability": "https://schema.org/InStock",
+                "priceValidUntil": "2026-12-31"
               },
               "author": {
                 "@type": "Organization",
@@ -237,7 +246,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "image": "https://www.repsreceipts.com/og-image.jpg",
               "provider": {
                 "@type": "Organization",
-                "name": "RepsReceipt"
+                "name": "RepsReceipts"
               },
               "areaServed": "Worldwide",
               "hasOfferCatalog": {
@@ -248,20 +257,40 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
-                      "name": "Receipt Generator",
-                      "description": "Generate receipts of. brands"
+                      "name": "Single Receipt",
+                      "description": "Generate a single professional receipt for any of 70+ brands"
                     },
-                    "price": "0",
+                    "price": "4.99",
                     "priceCurrency": "USD"
                   },
                   {
                     "@type": "Offer",
                     "itemOffered": {
-                      "@type": "Service", 
-                      "name": "Premium Receipt Generation",
-                      "description": "Generate receipts with advanced features and premium templates"
+                      "@type": "Service",
+                      "name": "1 Day Unlimited Access",
+                      "description": "24 hours of unlimited receipt generation for all brands"
                     },
-                    "price": "4.99",
+                    "price": "8.99",
+                    "priceCurrency": "USD"
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "1 Week Unlimited Access",
+                      "description": "7 days of unlimited receipt generation for all brands"
+                    },
+                    "price": "13.99",
+                    "priceCurrency": "USD"
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Lifetime Access",
+                      "description": "Lifetime unlimited receipt generation for all 70+ brands"
+                    },
+                    "price": "29.99",
                     "priceCurrency": "USD"
                   }
                 ]
@@ -269,8 +298,84 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             })
           }}
         />
+
+        {/* 5. FAQ Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "How many brands does RepsReceipts support?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "RepsReceipts supports 70+ brands including StockX, Nike, Gucci, Louis Vuitton, Farfetch, Canada Goose, Dior, Balenciaga, Supreme, Off-White, and many more luxury and streetwear brands."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How fast are receipts generated?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Receipts are generated instantly. Simply fill in your details, and your professional receipt is ready to download in seconds."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What pricing plans are available?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We offer flexible plans: 1 Receipt ($4.99), 1 Day Access ($8.99), 1 Week Access ($13.99), and Lifetime Access ($29.99). All plans are one-time payments with no auto-renewal."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Do the receipts look realistic?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, our receipts are 1:1 replicas of actual brand receipts, designed to look authentic with proper formatting, branding, and details matching the original receipts from each brand."
+                  }
+                }
+              ]
+            })
+          }}
+        />
+
+        {/* 6. BreadcrumbList Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://www.repsreceipts.com"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Brands",
+                  "item": "https://www.repsreceipts.com/brands"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Pricing",
+                  "item": "https://www.repsreceipts.com/pricing"
+                }
+              ]
+            })
+          }}
+        />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         {children}
         <Analytics />
       </body>
