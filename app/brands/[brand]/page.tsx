@@ -233,7 +233,7 @@ export default function BrandPage({ params }: Props) {
 
             {seoInfo && (
               <>
-                <p className="brand-hero-description">{seoInfo.longDescription}</p>
+                <p className="brand-hero-description">{seoInfo.heroLine}</p>
 
                 {seoInfo.popularProducts.length > 0 && (
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, justifyContent: 'center', marginTop: 16 }}>
@@ -451,9 +451,9 @@ export default function BrandPage({ params }: Props) {
         }
 
         .brand-hero-description {
-          font-size: 1.2rem;
+          font-size: 1rem;
           color: #666;
-          line-height: 1.6;
+          line-height: 1.5;
           max-width: 600px;
           margin: 0 auto;
         }
