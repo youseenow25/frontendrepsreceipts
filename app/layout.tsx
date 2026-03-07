@@ -22,13 +22,13 @@ export const metadata: Metadata = {
     title: 'StockX, Farfetch, Canada Goose +70 brands receipt',
     description: 'Generate receipts for StockX, Farfetch, Canada Goose +70 brands.',
     url: 'https://www.repsreceipts.com',
-    siteName: 'RepsReceipts',
+    siteName: 'RepsReceipt',
     images: [
       {
         url: '/og-image.jpg',
         width: 1150,
         height: 600,
-        alt: 'RepsReceipts - Receipt Generator',
+        alt: 'RepsReceipt - Receipt Generator',
       },
     ],
     locale: 'en_US',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: 'summary_large_image',
-    title: 'RepsReceipts - Receipt Generator',
+    title: 'RepsReceipt - Receipt Generator',
     description: 'Generate receipts for StockX, Farfetch +70 brands',
     images: ['/og-image.jpg'],
   },
@@ -56,9 +56,9 @@ export const metadata: Metadata = {
     'luxury fashion receipts',
     'streetwear receipts'
   ],
-  authors: [{ name: 'RepsReceipts' }],
-  creator: 'RepsReceipts',
-  publisher: 'RepsReceipts',
+  authors: [{ name: 'RepsReceipt' }],
+  creator: 'RepsReceipt',
+  publisher: 'RepsReceipt',
   robots: {
     index: true,
     follow: true,
@@ -132,14 +132,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="index, follow" />
 
-        {/* FAVICONS */}
+        {/* FAVICONS - handled by metadata.icons export, manual links below for compatibility */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
         <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
-        <link rel="icon" href="/android-chrome-192x192.png" type="image/png" sizes="192x192" />
-        <link rel="icon" href="/android-chrome-512x512.png" type="image/png" sizes="512x512" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
-        <link rel="manifest" href="/site.webmanifest" />
         
         {/* THEME COLORS */}
         <meta name="theme-color" content="#000000" />
@@ -151,10 +147,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:alt" content="RepsReceipts - Professional Receipt Generator for Luxury Brands" />
+        <meta property="og:image:alt" content="RepsReceipt - Professional Receipt Generator for Luxury Brands" />
         
         {/* TWITTER ADDITIONAL TAGS */}
-        <meta name="twitter:image:alt" content="RepsReceipts Generate receipts for luxury brands" />
+        <meta name="twitter:image:alt" content="RepsReceipt Generate receipts for luxury brands" />
 
         {/* ✅ SCHEMA MARKUP FOR SaaS */}
 
@@ -165,7 +161,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite", 
-              "name": "RepsReceipts",
+              "name": "RepsReceipt",
               "url": "https://www.repsreceipts.com",
               "description": "SaaS platform for generating authentic receipts for 100+ luxury and streetwear brands",
               "thumbnailUrl": "https://www.repsreceipts.com/og-image.jpg",
@@ -185,7 +181,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              "name": "RepsReceipts",
+              "name": "RepsReceipt",
               "url": "https://www.repsreceipts.com",
               "logo": "https://www.repsreceipts.com/logo.png",
               "description": "SaaS platform providing professional receipt generation services for luxury brands",
@@ -212,7 +208,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "SoftwareApplication",
-              "name": "RepsReceipts Receipt Generator",
+              "name": "RepsReceipt Receipt Generator",
               "applicationCategory": "BusinessApplication",
               "operatingSystem": "Web Browser",
               "description": "SaaS platform for generating authentic receipts for 70+ luxury and streetwear brands including StockX, Nike, Gucci, Louis Vuitton and more.",
@@ -229,7 +225,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               },
               "author": {
                 "@type": "Organization",
-                "name": "RepsReceipts"
+                "name": "RepsReceipt"
               }
             })
           }}
@@ -246,7 +242,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "image": "https://www.repsreceipts.com/og-image.jpg",
               "provider": {
                 "@type": "Organization",
-                "name": "RepsReceipts"
+                "name": "RepsReceipt"
               },
               "areaServed": "Worldwide",
               "hasOfferCatalog": {
@@ -309,10 +305,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "mainEntity": [
                 {
                   "@type": "Question",
-                  "name": "How many brands does RepsReceipts support?",
+                  "name": "How many brands does RepsReceipt support?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "RepsReceipts supports 70+ brands including StockX, Nike, Gucci, Louis Vuitton, Farfetch, Canada Goose, Dior, Balenciaga, Supreme, Off-White, and many more luxury and streetwear brands."
+                    "text": "RepsReceipt supports 70+ brands including StockX, Nike, Gucci, Louis Vuitton, Farfetch, Canada Goose, Dior, Balenciaga, Supreme, Off-White, and many more luxury and streetwear brands."
                   }
                 },
                 {
