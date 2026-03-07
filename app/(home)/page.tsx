@@ -59,10 +59,10 @@ export default function Page() {
               fontSize:20
             }}
           >
-           
 
-       
-  
+
+
+
 
             <a
               href="https://t.me/+BF4byc1lOas4MDVk"
@@ -94,8 +94,8 @@ export default function Page() {
               </p>
             </a>
           </div>
-           
-            
+
+
             <div style={{marginTop:10}} className={styles['receipts-grid']}>
               {brands.map((brand) => (
                 <Link
@@ -126,8 +126,27 @@ export default function Page() {
         <div style={{width:'100%'}} >
           <Hero />
           <ImageUploader />
+
+          {/* Programmatic SEO - Brand Pages */}
+          <div style={{padding: '60px 20px', textAlign: 'center', backgroundColor: '#ffffff'}}>
+            <h2 style={{fontSize: '28px', marginBottom: '40px', color: '#111827', fontWeight: '700'}}>Generate Receipts for Your Favorite Brands</h2>
+            <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '20px', maxWidth: '1200px', margin: '0 auto'}}>
+              {brands.map((brand) => (
+                <Link key={brand} href={`/brands/${brand}`} style={{textDecoration: 'none', padding: '20px 15px', border: '2px solid #e5e7eb', borderRadius: '10px', transition: 'all 0.3s ease', backgroundColor: '#f9fafb', cursor: 'pointer'}} onMouseEnter={(e) => {e.currentTarget.style.borderColor = '#d4af37'; e.currentTarget.style.backgroundColor = '#fffbf0'}} onMouseLeave={(e) => {e.currentTarget.style.borderColor = '#e5e7eb'; e.currentTarget.style.backgroundColor = '#f9fafb'}}>
+                  <p style={{margin: 0, color: '#111827', fontWeight: '600', fontSize: '16px'}}>{toLabel(brand)}</p>
+                  <p style={{margin: '8px 0 0 0', color: '#6b7280', fontSize: '13px'}}>Receipt Generator</p>
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
 
+        {/* YouTube Video Section */}
+        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '60px 20px', backgroundColor: '#f3f4f6'}}>
+          <div style={{display: 'flex', justifyContent: 'center', width: '100%', maxWidth: '600px'}}>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/0qwaXkqW72o?si=1o-qs8mPtdczuQKc" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen style={{borderRadius: '12px', boxShadow: '0 10px 25px rgba(0, 0, 0, 0.1)', width: '100%', maxWidth: '560px', height: 'auto', aspectRatio: '560/315'}}></iframe>
+          </div>
+        </div>
 
         <section className={styles['luxury-features']}>
           <div className={styles.container}>
@@ -145,10 +164,10 @@ export default function Page() {
                 <h3>Instant Generation</h3>
                 <p>Create professional luxury receipts in seconds with our advanced template system.</p>
               </div>
-              
-             
-              
-        
+
+
+
+
             </div>
           </div>
         </section>

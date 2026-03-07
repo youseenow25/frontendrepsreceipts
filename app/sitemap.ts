@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import brandsSchema from '@/components/brands'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.repsreceipts.com'
+  const baseUrl = 'https://www.repsreceipt.com'
 
   const brands = Object.keys(brandsSchema.brands || {})
 
