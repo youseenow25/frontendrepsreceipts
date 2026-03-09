@@ -30,6 +30,7 @@ export const metadata: Metadata = {
         height: 630,
         alt: 'RepsReceipt - Receipt Generator',
       },
+      
     ],
     locale: 'en_US',
     type: 'website',
