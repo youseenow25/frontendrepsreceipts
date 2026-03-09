@@ -1,6 +1,5 @@
 // app/page.tsx
 "use client";
-import { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
@@ -35,9 +34,6 @@ function toLabel(name: string): string {
 }
 
 export default function Page() {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => { setMounted(true); }, []);
-  if (!mounted) return null;
   return (
     <>
 
@@ -97,7 +93,7 @@ export default function Page() {
 
 
             <div style={{marginTop:10}} className={styles['receipts-grid']}>
-              {brands.map((brand) => (
+              {brands.map((brand, index) => (
                 <Link
                   key={brand}
                   href={`/brands/${brand}`}
@@ -110,7 +106,8 @@ export default function Page() {
                       alt={`${toLabel(brand)} receipt example - Generate ${toLabel(brand)} receipts online`}
                       width={120}
                       height={160}
-                      priority
+                      priority={index < 2}
+                      loading={index >= 2 ? "lazy" : undefined}
                       style={{
                         objectFit: "contain",
                       }}
@@ -144,7 +141,7 @@ export default function Page() {
         {/* YouTube Video Section */}
         <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '60px 20px', backgroundColor: '#f3f4f6'}}>
           <div style={{display: 'flex', justifyContent: 'center', width: '100%', maxWidth: '600px'}}>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/0qwaXkqW72o?si=1o-qs8mPtdczuQKc" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen style={{borderRadius: '12px', boxShadow: '0 10px 25px rgba(0, 0, 0, 0.1)', width: '100%', maxWidth: '560px', height: 'auto', aspectRatio: '560/315'}}></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/0qwaXkqW72o?si=1o-qs8mPtdczuQKc" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen loading="lazy" style={{borderRadius: '12px', boxShadow: '0 10px 25px rgba(0, 0, 0, 0.1)', width: '100%', maxWidth: '560px', height: 'auto', aspectRatio: '560/315'}}></iframe>
           </div>
         </div>
 

@@ -22,31 +22,21 @@ export default function Header() {
   const [isMobile, setIsMobile] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
 
-  // Set mounted state to avoid hydration errors
+  // Combined initial mount effect
   useEffect(() => {
     setIsMounted(true);
-  }, []);
 
-  // Check if mobile on mount and resize - only after component mounts
-  useEffect(() => {
-    if (!isMounted) return;
-
+    // Check mobile
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-
     checkMobile();
     window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, [isMounted]);
 
-  // ✅ Get user data from localStorage - only after component mounts
-  useEffect(() => {
-    if (!isMounted) return;
-
+    // Get user data from localStorage
     const userData = localStorage.getItem("user");
     const token = localStorage.getItem("auth_token");
-    
+
     if (token && userData) {
       try {
         setUser(JSON.parse(userData));
@@ -56,7 +46,9 @@ export default function Header() {
         localStorage.removeItem("auth_token");
       }
     }
-  }, [isMounted]);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const goToLogin = () => {
     router.push("/login");
