@@ -13,7 +13,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Generate StockX, Farfetch, +70 brands receipts',
   description: 'Create realistic receipts for StockX, Louis Vuitton, Dior, Gucci, Nike, Supreme, Balenciaga, Off-White & 100+ premium brands. Professional receipt generator for luxury documentation and purchase verification.',
-  metadataBase: new URL('https://www.repsreceipts.com'),
+  metadataBase: new URL('https://www.repsreceipt.com'),
   alternates: {
     canonical: '/',
   },
@@ -21,13 +21,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'StockX, Farfetch, Canada Goose +70 brands receipt',
     description: 'Generate receipts for StockX, Farfetch, Canada Goose +70 brands.',
-    url: 'https://www.repsreceipts.com',
+    url: 'https://www.repsreceipt.com',
     siteName: 'RepsReceipt',
     images: [
       {
-        url: '/og-image.jpg',
-        width: 1150,
-        height: 600,
+        url: '/og-image.jpg?v=2',
+        width: 1200,
+        height: 630,
         alt: 'RepsReceipt - Receipt Generator',
       },
     ],
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'RepsReceipt - Receipt Generator',
     description: 'Generate receipts for StockX, Farfetch +70 brands',
-    images: ['/og-image.jpg'],
+    images: ['/og-image.jpg?v=2'],
   },
 
   keywords: [
@@ -161,12 +161,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "@context": "https://schema.org",
               "@type": "WebSite", 
               "name": "RepsReceipt",
-              "url": "https://www.repsreceipts.com",
+              "url": "https://www.repsreceipt.com",
               "description": "SaaS platform for generating authentic receipts for 100+ luxury and streetwear brands",
-              "thumbnailUrl": "https://www.repsreceipts.com/og-image.jpg",
+              "thumbnailUrl": "https://www.repsreceipt.com/og-image.jpg?v=2",
+              "image": "https://www.repsreceipt.com/og-image.jpg?v=2",
               "potentialAction": {
                 "@type": "SearchAction",
-                "target": "https://www.repsreceipts.com/search?q={search_term_string}",
+                "target": "https://www.repsreceipt.com/search?q={search_term_string}",
                 "query-input": "required name=search_term_string"
               }
             })
@@ -181,8 +182,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "RepsReceipt",
-              "url": "https://www.repsreceipts.com",
-              "logo": "https://www.repsreceipts.com/logo.png",
+              "url": "https://www.repsreceipt.com",
+              "logo": "https://www.repsreceipt.com/logo-1200x1200.png",
               "description": "SaaS platform providing professional receipt generation services for luxury brands",
               "sameAs": [],
               "address": {
@@ -211,8 +212,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "applicationCategory": "BusinessApplication",
               "operatingSystem": "Web Browser",
               "description": "SaaS platform for generating authentic receipts for 70+ luxury and streetwear brands including StockX, Nike, Gucci, Louis Vuitton and more.",
-              "url": "https://www.repsreceipts.com",
-              "image": "https://www.repsreceipts.com/og-image.jpg",
+              "url": "https://www.repsreceipt.com",
+              "image": "https://www.repsreceipt.com/og-image.jpg?v=2",
+              "screenshot": "https://www.repsreceipt.com/og-image.jpg?v=2",
               "offers": {
                 "@type": "AggregateOffer",
                 "lowPrice": "4.99",
@@ -238,7 +240,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "@context": "https://schema.org",
               "@type": "Service",
               "serviceType": "Digital Receipt Generation",
-              "image": "https://www.repsreceipts.com/og-image.jpg",
+              "image": "https://www.repsreceipt.com/og-image.jpg?v=2",
               "provider": {
                 "@type": "Organization",
                 "name": "RepsReceipt"
@@ -351,19 +353,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   "@type": "ListItem",
                   "position": 1,
                   "name": "Home",
-                  "item": "https://www.repsreceipts.com"
+                  "item": "https://www.repsreceipt.com"
                 },
                 {
                   "@type": "ListItem",
                   "position": 2,
                   "name": "Brands",
-                  "item": "https://www.repsreceipts.com/brands"
+                  "item": "https://www.repsreceipt.com/brands"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
                   "name": "Pricing",
-                  "item": "https://www.repsreceipts.com/pricing"
+                  "item": "https://www.repsreceipt.com/pricing"
                 }
               ]
             })
