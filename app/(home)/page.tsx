@@ -141,7 +141,7 @@ export default function Page() {
         {/* YouTube Video Section */}
         <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '60px 20px', backgroundColor: '#f3f4f6'}}>
           <div style={{display: 'flex', justifyContent: 'center', width: '100%', maxWidth: '600px'}}>
-            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/0qwaXkqW72o?si=1o-qs8mPtdczuQKc" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen loading="lazy" style={{borderRadius: '12px', boxShadow: '0 10px 25px rgba(0, 0, 0, 0.1)', width: '100%', maxWidth: '560px', height: 'auto', aspectRatio: '560/315'}}></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/0qwaXkqW72o?si=IMcpuCdewiZ0G_ag" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen loading="lazy" style={{borderRadius: '12px', boxShadow: '0 10px 25px rgba(0, 0, 0, 0.1)', width: '100%', maxWidth: '560px', height: 'auto', aspectRatio: '560/315'}}></iframe>
           </div>
         </div>
 
