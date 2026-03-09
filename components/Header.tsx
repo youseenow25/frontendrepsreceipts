@@ -112,10 +112,11 @@ export default function Header() {
       <button
         onClick={() => navigateTo("/")}
         style={{ display: "flex", alignItems: "center", gap: 8, border: "none", background: "none" }}
+        aria-label="Go to home page"
       >
-   
+
       </button>
-      <button onClick={toggleMobileMenu} style={{ border: "none", background: "none" }}>
+      <button onClick={toggleMobileMenu} style={{ border: "none", background: "none" }} aria-label="Close mobile menu">
         <X size={28} color="black" />
       </button>
     </div>
@@ -425,6 +426,7 @@ export default function Header() {
               <button
                 onClick={toggleMobileMenu}
                 style={{ background: "none", border: "none", padding: 8 }}
+                aria-label="Open mobile menu"
               >
                 <Menu size={24} color="black" />
               </button>
@@ -486,6 +488,7 @@ export default function Header() {
               <button
                 onClick={toggleMobileMenu}
                 style={{ background: "none", border: "none", padding: 8 }}
+                aria-label="Open mobile menu"
               >
                 <Menu size={24} color="black" />
               </button>

@@ -231,7 +231,7 @@ const Toast = ({ message, type = "success", onClose }: {
       <div className="toast-content">
         <span className="toast-message">{message}</span>
       </div>
-      <button className="toast-close" onClick={onClose}>
+      <button className="toast-close" onClick={onClose} aria-label="Close notification">
         <X size={16} />
       </button>
     </div>
@@ -272,7 +272,7 @@ const ResultModal = ({
               <h2 style={{textAlign:'center'}} >2. If the images don't show in the receipt, just set the email as not spam.</h2>
 
 
-          <button className="close-button" onClick={onClose} style={{ position: 'absolute', top: 0, right: 0 }}>
+          <button className="close-button" onClick={onClose} style={{ position: 'absolute', top: 0, right: 0 }} aria-label="Close modal">
             <X size={24} />
           </button>
         </div>
@@ -1633,12 +1633,14 @@ export default function ImageUploader() {
           background: none;
           border: none;
           cursor: pointer;
-          padding: 4px;
+          padding: 12px;
           color: inherit;
           opacity: 0.7;
           display: flex;
           align-items: center;
           justify-content: center;
+          min-width: 44px;
+          min-height: 44px;
         }
         .toast-close:hover {
           opacity: 1;
@@ -1688,12 +1690,14 @@ export default function ImageUploader() {
           background: none;
           border: none;
           cursor: pointer;
-          padding: 4px;
+          padding: 12px;
           border-radius: 4px;
           display: flex;
           align-items: center;
           justify-content: center;
           color: #666;
+          min-width: 44px;
+          min-height: 44px;
         }
         
         .close-button:hover {

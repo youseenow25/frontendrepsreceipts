@@ -69,10 +69,10 @@ const Footer = () => {
 
           {/* Social Icons */}
           <div className="flex gap-4 mt-4 text-white">
-            <a href="#"><i className="fab fa-facebook-f text-lg"></i></a>
-            <a href="#"><i className="fab fa-instagram text-lg"></i></a>
-            <a href="#"><i className="fab fa-youtube text-lg"></i></a>
-            <a href="#"><i className="fab fa-tiktok text-lg"></i></a>
+            <a href="#" aria-label="Visit our Facebook page"><i className="fab fa-facebook-f text-lg"></i></a>
+            <a href="#" aria-label="Visit our Instagram page"><i className="fab fa-instagram text-lg"></i></a>
+            <a href="#" aria-label="Visit our YouTube channel"><i className="fab fa-youtube text-lg"></i></a>
+            <a href="#" aria-label="Visit our TikTok page"><i className="fab fa-tiktok text-lg"></i></a>
           </div>
         </div>
 
@@ -150,7 +150,8 @@ const Footer = () => {
       <div className="mt-12 border-t border-white/30 pt-6 text-sm flex flex-col md:flex-row justify-between items-center gap-4">
 
         {/* Country Selector */}
-        <select className="bg-transparent border border-white/50 rounded-md px-3 py-2 text-white/90">
+        <label htmlFor="country-selector" className="sr-only">Select your country and currency</label>
+        <select id="country-selector" className="bg-transparent border border-white/50 rounded-md px-3 py-2 text-white/90" aria-label="Select country and currency">
           <option>Spain | EUR €</option>
           <option>Finland | EUR €</option>
           <option>USA | USD $</option>
@@ -158,10 +159,10 @@ const Footer = () => {
 
         {/* Policies */}
         <div className="text-white/90 flex flex-wrap justify-center gap-4">
-          <a href="#" className="hover:underline">Privacy Policy</a>
-          <a href="#" className="hover:underline">Refund Policy</a>
-          <a href="#" className="hover:underline">Cookie Preferences</a>
-          <a href="#" className="hover:underline">Terms of Service</a>
+          <span className="opacity-60" title="Coming soon">Privacy Policy</span>
+          <span className="opacity-60" title="Coming soon">Refund Policy</span>
+          <span className="opacity-60" title="Coming soon">Cookie Preferences</span>
+          <span className="opacity-60" title="Coming soon">Terms of Service</span>
         </div>
       </div>
 
@@ -172,16 +173,16 @@ const Footer = () => {
       <div className="mt-2 text-center text-white/90 text-sm">
         Follow us on social media!
         <div className="inline-flex gap-3 ml-2">
-          <a href="#" className="hover:text-white transition-colors">
+          <a href="#" className="hover:text-white transition-colors" aria-label="Visit our Facebook page">
             <i className="fab fa-facebook-f"></i>
           </a>
-          <a href="#" className="hover:text-white transition-colors">
+          <a href="#" className="hover:text-white transition-colors" aria-label="Visit our Instagram page">
             <i className="fab fa-instagram"></i>
           </a>
-          <a href="#" className="hover:text-white transition-colors">
+          <a href="#" className="hover:text-white transition-colors" aria-label="Visit our TikTok page">
             <i className="fab fa-tiktok"></i>
           </a>
-          <a href="#" className="hover:text-white transition-colors">
+          <a href="#" className="hover:text-white transition-colors" aria-label="Visit our YouTube channel">
             <i className="fab fa-youtube"></i>
           </a>
         </div>
