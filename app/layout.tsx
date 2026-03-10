@@ -25,12 +25,12 @@ export const metadata: Metadata = {
     siteName: 'RepsReceipt',
     images: [
       {
-        url: '/og-image.jpg?v=2',
+        url: '/og-image.jpg?v=3',
         width: 1200,
         height: 630,
         alt: 'RepsReceipt - Receipt Generator',
       },
-      
+
     ],
     locale: 'en_US',
     type: 'website',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'RepsReceipt - Receipt Generator',
     description: 'Generate receipts for StockX, Farfetch +70 brands',
-    images: ['/og-image.jpg?v=2'],
+    images: ['/og-image.jpg?v=3'],
   },
 
   keywords: [
@@ -75,33 +75,33 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/favicon.ico?v=1',
+        url: '/favicon.ico?v=3',
         sizes: 'any',
       },
       {
-        url: '/favicon-16x16.png?v=1',
+        url: '/favicon-16x16.png?v=3',
         sizes: '16x16',
         type: 'image/png',
       },
       {
-        url: '/favicon-32x32.png?v=1',
+        url: '/favicon-32x32.png?v=3',
         sizes: '32x32',
         type: 'image/png',
       },
       {
-        url: '/android-chrome-192x192.png?v=1',
+        url: '/android-chrome-192x192.png?v=3',
         sizes: '192x192',
         type: 'image/png',
       },
       {
-        url: '/android-chrome-512x512.png?v=1',
+        url: '/android-chrome-512x512.png?v=3',
         sizes: '512x512',
         type: 'image/png',
       },
     ],
     apple: [
       {
-        url: '/apple-touch-icon.png?v=1',
+        url: '/apple-touch-icon.png?v=3',
         sizes: '180x180',
         type: 'image/png',
       },
@@ -139,9 +139,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="robots" content="index, follow" />
 
         {/* FAVICONS - handled by metadata.icons export, manual links below for compatibility */}
-        <link rel="icon" href="/favicon.ico?v=1" sizes="any" />
-        <link rel="icon" href="/favicon-32x32.png?v=1" type="image/png" sizes="32x32" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=1" sizes="180x180" />
+        <link rel="icon" href="/favicon.ico?v=3" sizes="any" />
+        <link rel="icon" href="/favicon-32x32.png?v=3" type="image/png" sizes="32x32" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" sizes="180x180" />
 
         {/* THEME COLORS */}
         <meta name="theme-color" content="#000000" />
@@ -169,8 +169,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "name": "RepsReceipt",
               "url": "https://www.repsreceipt.com",
               "description": "SaaS platform for generating authentic receipts for 100+ luxury and streetwear brands",
-              "thumbnailUrl": "https://www.repsreceipt.com/og-image.jpg?v=2",
-              "image": "https://www.repsreceipt.com/og-image.jpg?v=2",
+              "thumbnailUrl": "https://www.repsreceipt.com/og-image.jpg?v=3",
+              "image": "https://www.repsreceipt.com/og-image.jpg?v=3",
               "potentialAction": {
                 "@type": "SearchAction",
                 "target": "https://www.repsreceipt.com/search?q={search_term_string}",
@@ -189,7 +189,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "@type": "Organization",
               "name": "RepsReceipt",
               "url": "https://www.repsreceipt.com",
-              "logo": "https://www.repsreceipt.com/logo-1200x1200.png",
+              "logo": "https://www.repsreceipt.com/logo-1200x1200.png?v=3",
               "description": "SaaS platform providing professional receipt generation services for luxury brands",
               "sameAs": [],
               "address": {
@@ -219,8 +219,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "operatingSystem": "Web Browser",
               "description": "SaaS platform for generating authentic receipts for 70+ luxury and streetwear brands including StockX, Nike, Gucci, Louis Vuitton and more.",
               "url": "https://www.repsreceipt.com",
-              "image": "https://www.repsreceipt.com/og-image.jpg?v=2",
-              "screenshot": "https://www.repsreceipt.com/og-image.jpg?v=2",
+              "image": "https://www.repsreceipt.com/og-image.jpg?v=3",
+              "screenshot": "https://www.repsreceipt.com/og-image.jpg?v=3",
               "offers": {
                 "@type": "AggregateOffer",
                 "lowPrice": "4.99",
@@ -246,7 +246,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "@context": "https://schema.org",
               "@type": "Service",
               "serviceType": "Digital Receipt Generation",
-              "image": "https://www.repsreceipt.com/og-image.jpg?v=2",
+              "image": "https://www.repsreceipt.com/og-image.jpg?v=3",
               "provider": {
                 "@type": "Organization",
                 "name": "RepsReceipt"
