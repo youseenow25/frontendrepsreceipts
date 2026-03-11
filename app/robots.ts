@@ -22,6 +22,6 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
     ],
-    sitemap: 'https://www.repsreceipts.com/sitemap.xml',
+    sitemap: 'https://www.repsreceipt.com/sitemap.xml',
   }
 }

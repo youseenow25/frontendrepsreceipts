@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'All Brand Receipt Generators - RepsReceipts',
     description: 'Generate receipts for 70+ luxury, streetwear, and sports brands. Browse by category.',
-    url: 'https://www.repsreceipts.com/brands',
+    url: 'https://www.repsreceipt.com/brands',
     type: 'website',
   },
 }

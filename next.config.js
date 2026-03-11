@@ -9,7 +9,7 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'www.repsreceipts.com',
+        hostname: 'www.repsreceipt.com',
       },
     ],
     formats: ['image/avif', 'image/webp'],

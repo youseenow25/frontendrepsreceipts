@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Log In - RepsReceipts',
     description: 'Access your RepsReceipts account to generate and download professional receipts for 70+ brands.',
-    url: 'https://www.repsreceipts.com/login',
+    url: 'https://www.repsreceipt.com/login',
     type: 'website',
   },
   twitter: {

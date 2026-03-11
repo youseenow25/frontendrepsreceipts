@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Pricing - RepsReceipts | Plans from $4.99',
     description: 'Professional receipt generator for 70+ luxury brands. One-time payment plans starting at $4.99. No subscription required.',
-    url: 'https://www.repsreceipts.com/pricing',
+    url: 'https://www.repsreceipt.com/pricing',
     type: 'website',
     images: [
       {

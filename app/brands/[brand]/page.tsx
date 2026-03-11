@@ -30,7 +30,7 @@ export async function generateMetadata(
   const description = seoInfo
     ? `${seoInfo.longDescription} Create ${brandName} receipts with accurate formatting and details.`
     : `Generate professional email receipts for ${brandName} instantly. Realistic ${brandName} receipt generator with customizable details.`
-  const logoUrl = `https://www.repsreceipts.com/brand-logos/${brand.toLowerCase().replace(/[^a-z0-9]/g, '_')}.png`
+  const logoUrl = `https://www.repsreceipt.com/brand-logos/${brand.toLowerCase().replace(/[^a-z0-9]/g, '_')}.png`
 
   return {
     title: `${brandName} Receipt Generator | Create ${brandName} Receipts Online - RepsReceipts`,
@@ -56,7 +56,7 @@ export async function generateMetadata(
       description: description,
       type: 'website',
       locale: 'en_US',
-      url: `https://www.repsreceipts.com/brands/${brand}`,
+      url: `https://www.repsreceipt.com/brands/${brand}`,
       siteName: 'RepsReceipts',
       images: [
         {
@@ -130,7 +130,7 @@ export default function BrandPage({ params }: Props) {
   const brandName = toLabel(brand)
   const seoInfo = brandSeoData[brand]
   const relatedBrands = getRelatedBrands(brand, 6)
-  const logoUrl = `https://www.repsreceipts.com/brand-logos/${brand.toLowerCase().replace(/[^a-z0-9]/g, '_')}.png`
+  const logoUrl = `https://www.repsreceipt.com/brand-logos/${brand.toLowerCase().replace(/[^a-z0-9]/g, '_')}.png`
   const categoryLabel = seoInfo ? categoryLabels[seoInfo.category] : ''
 
   const structuredData = {
@@ -139,11 +139,11 @@ export default function BrandPage({ params }: Props) {
     'name': `${brandName} Receipt Generator`,
     'description': seoInfo?.longDescription || `Generate professional ${brandName} email receipts instantly with accurate formatting and details.`,
     'image': logoUrl,
-    'url': `https://www.repsreceipts.com/brands/${brand}`,
+    'url': `https://www.repsreceipt.com/brands/${brand}`,
     'provider': {
       '@type': 'Organization',
       'name': 'RepsReceipts',
-      'url': 'https://www.repsreceipts.com'
+      'url': 'https://www.repsreceipt.com'
     },
     'areaServed': 'Worldwide',
     'serviceType': 'Receipt Generation',
@@ -185,19 +185,19 @@ export default function BrandPage({ params }: Props) {
         '@type': 'ListItem',
         'position': 1,
         'name': 'Home',
-        'item': 'https://www.repsreceipts.com'
+        'item': 'https://www.repsreceipt.com'
       },
       {
         '@type': 'ListItem',
         'position': 2,
         'name': 'Brands',
-        'item': 'https://www.repsreceipts.com/brands'
+        'item': 'https://www.repsreceipt.com/brands'
       },
       {
         '@type': 'ListItem',
         'position': 3,
         'name': `${brandName} Receipt Generator`,
-        'item': `https://www.repsreceipts.com/brands/${brand}`
+        'item': `https://www.repsreceipt.com/brands/${brand}`
       }
     ]
   }
